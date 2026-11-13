@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新闻日报 · 2026年11月11日 · 第 005 期</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en">
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh" checked>
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 005</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>17 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 11, 2026</strong> &nbsp;·&nbsp; Wednesday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>17 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">S&amp;P 500 · Nov 10 close</div><div class="val">7,520.93</div><div class="chg down">Down 0.38%</div></div><div class="cell"><div class="label">Nasdaq · Nov 10 close</div><div class="val">25,065.88</div><div class="chg down">Down 0.74%</div></div><div class="cell"><div class="label">Dow Jones · Nov 10 close</div><div class="val">52,231.89</div><div class="chg down">Down 0.30%</div></div><div class="cell"><div class="label">Spot gold · Nov 10</div><div class="val">$4,038.70/oz</div><div class="chg down">Down 1.84%</div></div><div class="cell"><div class="label">Brent crude · Nov 10 intraday</div><div class="val">$90.18/bbl</div><div class="chg down">Down 2.58%</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Front Page · U.S. Inflation and the Fed</div>
+      <h1>Hotter-Than-Expected U.S. Inflation All but Locks In a December Fed Hike</h1>
+      <p class="deck">October CPI rose 0.4% month on month and core CPI 0.3%, both above forecasts, while Fed Governor Christopher Waller has raised the possibility of a 50-basis-point hike in December.</p>
+      <div class="byline"><span>Source <b>Reuters</b></span><span>·</span><span>Investopedia</span></div>
+      <div class="lead-cols"><p>Data released by the U.S. Bureau of Labor Statistics on November 10 showed the consumer price index rose 0.4% in October from the previous month, while core CPI rose 0.3% — each 0.1 percentage point above market forecasts. The bureau did not publish year-on-year figures because of data-collection issues, but a Reuters poll of 101 economists found the Federal Reserve is expected to raise rates by 25 basis points in December, taking the federal funds target range to 4.00%–4.25%, with most respondents expecting that to be the final hike of this cycle.</p><p>Before the data, Fed Governor Christopher Waller said in London that the Fed should raise rates in December even if October inflation cooled, and should consider a 50-basis-point move if core CPI rose by 0.3% or more. After the release, markets priced in a December hike still more firmly, the 10-year Treasury yield climbed to 4.98%, and all three major U.S. stock indexes closed lower, with the Nasdaq leading the decline.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/business/poll-fed-raise-rates-once-more-december-inflation-risks-stay-high-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original →</a>&nbsp;&nbsp;<a class="readmore" href="https://www.investopedia.com/5-things-to-know-stock-market-november-10-2026-12244529" target="_blank" rel="noopener noreferrer">Read original →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">Iran</div>
+        <h2 class="mini-head">Tankers Still Burning in the Strait of Hormuz as Hopes for De-escalation Meet Reality</h2>
+        <p class="body-text">Despite market bets on a U.S.–Iran de-escalation, videos and satellite images verified by Reuters show three more tankers were hit near the Strait of Hormuz on November 9, including the Singapore-flagged Navig8 Messi, which caught fire off Oman. Thirty-seven ships were attacked in October, the highest monthly total since the war began.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/energy/tankers-continue-burn-middle-east-despite-hopes-de-escalation-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">U.S. Congress</div>
+        <h2 class="mini-head">House Republicans Elect Jim Jordan as Minority Leader for Next Congress</h2>
+        <p class="body-text">A week after their midterm defeat, House Republicans voted by secret ballot behind closed doors on November 10 to elect Ohio Representative Jim Jordan, chair of the House Judiciary Committee, as their conference leader for the next Congress. Democrats won sizable majorities in both the House and Senate in last Tuesday's elections.</p>
+        <p class="src">Source: Reuters · Punchbowl News · <a href="https://www.reuters.com/world/us/us-house-republicans-elect-jim-jordan-leader-next-congress-punchbowl-news-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>U.S. October CPI beat forecasts, all but locking in a December Fed hike — and Waller has floated a 50-basis-point move.</li><li>Trump held off new strikes on Iran and oil prices tumbled, yet tankers are still burning in the Strait of Hormuz.</li><li>China's trade surplus topped $1 trillion in the first 10 months, powered by AI hardware exports.</li><li>Anthropic launched Claude Fable 5.2 and Mythos 5.2, as Google and Meta stepped up AI chips and lightweight models on the same day.</li><li>Wembanyama scored 40 points with nine blocks to lead the Spurs to a ninth straight win, while Doncic's 32 points lifted the Lakers past the Hawks.</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">Iran</div>
+        <h4>Rubio: Economic Pressure Is Working, No Need for Major Combat Operations Against Iran</h4>
+        <p class="body-text">Secretary of State Marco Rubio said in Paris on November 10 that U.S. sanctions and the naval blockade are inflicting &quot;extraordinary&quot; economic pain on Iran that grows every day, so Washington does not need major combat operations to achieve its aims. Trump said on November 9 he would hold off new military strikes.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/rubio-says-no-need-major-combat-operations-iran-given-us-economic-campaign-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">In this section: Washington is leaning on economic pressure rather than military strikes against Iran, yet tankers are still burning in the Strait of Hormuz, while congressional Republicans regroup their leadership after the midterm defeat.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 05 · China Trade</div>
+    <h3>China's Trade Surplus Tops $1 Trillion in 10 Months as AI Hardware Exports Lead</h3>
+    <p>Chinese customs data released on November 10 showed exports rose 35.2% year on year in October to $412.3 billion, while imports grew 41.6% to $307.1 billion. The January–October trade surplus reached about $1.04 trillion, topping $1 trillion for a second straight year — a month earlier than in 2025 — and putting China on track to beat last year's record of about $1.2 trillion.</p>
+    <p class="src">Source: Nikkei Asia · <a href="https://www.linkedin.com/posts/nikkeiasia_china-exports-stay-brisk-as-annual-trade-activity-7525803092659982336-nYi1" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 06 · China–Canada</div>
+    <h3>Carney to Raise Foreign Interference With Xi at APEC This Month</h3>
+    <p>Canadian Prime Minister Mark Carney said on November 10 he will meet Chinese President Xi Jinping on the sidelines of the APEC summit in Shenzhen on November 18–19, and will stress that China and other countries should not interfere in Canada's internal affairs. Beijing has long denied seeking to interfere in Canadian domestic affairs.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/china/carney-says-he-will-tell-xi-that-outsiders-should-not-meddle-canadas-affairs-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 07 · Asia Markets</div>
+    <h3>Asia Stocks Climb as Sliding Oil Lifts Sentiment; Nikkei Reclaims 60,000</h3>
+    <p>Asian stocks rose on November 10 as oil prices fell after Trump said he would hold off new military strikes against Iran. The Nikkei 225 climbed back above 60,000, South Korea's KOSPI jumped about 4.4% to 5,239.13, and chip stocks led the gains, with investors now focused on U.S. October CPI data.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 08 · U.S. Stocks</div>
+    <h3>Hot CPI Drags U.S. Stocks Lower; S&amp;P Falls 0.38%, Nasdaq 0.74%, Nvidia Drops 5.5%</h3>
+    <p>U.S. stocks closed lower on November 10: the S&amp;P 500 fell 0.38% to 7,520.93, the Nasdaq dropped 0.74% to 25,065.88, and the Dow slipped 0.30% to 52,231.89. The 10-year Treasury yield rose to 4.98%, while Nvidia fell 5.47% to $168.89, pacing Dow decliners.</p>
+    <p class="src">Source: Investopedia · <a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11102026-12246538" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><div class="pullquote"><div class="big">−0.74%</div><div class="small">Nasdaq, Nov 10 close</div><div class="note">Hot CPI pushed the 10-year Treasury yield to 4.98%, a December hike is all but certain, and tech stocks led the decline.</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">No. 09 · Federal Reserve</div>
+    <h3>Reuters Poll: Fed to Raise Rates Once More in December as Inflation Risks Stay High</h3>
+    <p>A Reuters poll of 101 economists conducted November 6–10 found the Fed is expected to hike by 25 basis points in December to 4.00%–4.25%, with about 55% expecting that to mark the end of the current cycle. A strong jobs market, resilient growth and inflation stuck above the Fed's 2% target for nearly six years all point to further tightening.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/poll-fed-raise-rates-once-more-december-inflation-risks-stay-high-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 10 · European Stocks</div>
+    <h3>European Shares Near Record High as Lower Oil Prices Boost Sentiment</h3>
+    <p>Europe's STOXX 600 rose 0.9% to 662.54 on November 10, within 1% of its record high from early August, with benchmark indexes in Germany, France and Italy each up about 1%. Brent crude fell below $90 a barrel, easing energy-driven inflation worries and lifting airline shares.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/markets/europe/european-shares-near-record-high-lower-oil-prices-boost-sentiment-2026-11-10/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 11 · AI Models</div>
+    <h3>Anthropic Unveils Claude Fable 5.2 and Mythos 5.2, Cutting Prices Ahead of IPO</h3>
+    <p>Anthropic unveiled Claude Fable 5.2 and Claude Mythos 5.2 on November 9, calling them its most capable models yet: Fable targets coding, reasoning and AI agent tasks, while Mythos is for approved cybersecurity and life-sciences research. The models generate outputs up to 30% faster than their 5.1 predecessors and are priced at $8 per million input tokens.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/technology/anthropic-unveils-new-fable-mythos-models-competition-heats-up-ahead-ipo-2026-11-09/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 12 · Nvidia</div>
+    <h3>Nvidia Board Hires Wachtell to Lead Huang Probe as Shares Slide for a Second Day</h3>
+    <p>Nvidia's independent directors hired Wachtell, Lipton, Rosen &amp; Katz and former acting U.S. Attorney Joon Kim on November 10 to lead the independent investigation into CEO Jensen Huang. The probe follows reports that Huang was targeted by a foreign intelligence effort; the board said it has no reason to believe national security or company secrets were compromised. Nvidia shares fell another 5.5% on the day.</p>
+    <p class="src">Source: The New York Times · The Wall Street Journal · <a href="https://www.talkesport.com/business/nvidia-wachtell-lipton-joon-kim-jensen-huang-investigation/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 13 · AI Chips</div>
+    <h3>Google Adds TPU 8tx and 8i Max, Completing Four Eighth-Generation TPUs in a Year</h3>
+    <p>Google introduced TPU 8tx and TPU 8i Max on November 9: the 8tx is built for secure, confidential inference, keeping data and model weights protected while in use, while the 8i Max packages two TPU 8i chips together, doubling compute, on-chip memory and high-bandwidth memory bandwidth for massive context windows and agentic workloads. Both systems are expected in 2027.</p>
+    <p class="src">Source: Bloomberg · Google · <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/?ref=thehype.news" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 14 · Lightweight Models</div>
+    <h3>Meta Launches Muse Ember, Its Smallest and Cheapest Model, for Repetitive Agent Work</h3>
+    <p>Meta introduced Muse Ember on November 9, the smallest and most efficient model in its Muse lineup, built for the work agents repeat all day: tool calls, coding subtasks, routing, extraction and long-document parsing. It costs $0.10 per million input tokens and $0.50 per million output tokens — the same per-token rates as Claude Haiku 5.5 and OpenAI's GPT-6 Luna.</p>
+    <p class="src">Source: Meta · TechCrunch · <a href="https://medium.com/daily-post-of-ai/the-daily-post-of-ai-issue-36-111ed715219b" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 15 · Enterprise AI</div>
+    <h3>OpenAI Lists ChatGPT Enterprise on AWS Marketplace, Counting Toward Cloud Commitments</h3>
+    <p>OpenAI announced on November 9 that ChatGPT Enterprise is now available through AWS Marketplace, letting organizations buy and manage it through their existing AWS purchasing and billing relationship, with eligible spending counting toward AWS commitments. The bundle covers Chat, ChatGPT Work, Codex and dots, with the same features as the direct offering.</p>
+    <p class="src">Source: OpenAI · AWS · <a href="https://www.unite.ai/openai-starts-selling-chatgpt-enterprise-through-aws-marketplace/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 16 · NBA</div>
+    <h3>Wembanyama Drops 40 Points With Nine Blocks as Spurs Rout Suns for Ninth Straight Win</h3>
+    <p>The San Antonio Spurs routed the Phoenix Suns 122–96 on November 10 for their ninth straight win. Victor Wembanyama needed just 25 minutes to pile up 40 points and 11 rebounds, with nine blocks, shooting 15-for-19 from the field — his third 40-point game of the season, all in his last six outings.</p>
+    <p class="src">Source: Pro Football Network · <a href="https://www.profootballnetwork.com/nba/wembanyama-performance-fans-react-suns/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 17 · NBA</div>
+    <h3>Doncic Scores 32 With 10 Assists as Lakers Beat Hawks 124–114 for Sixth Straight Win</h3>
+    <p>The Los Angeles Lakers beat the Atlanta Hawks 124–114 on the road on November 10 for their sixth straight win, improving to 10–2. Luka Doncic returned from injury with 32 points, 10 assists, eight rebounds and five steals, and traded words with Hawks fans during the game.</p>
+    <p class="src">Source: Pro Football Network · <a href="https://www.profootballnetwork.com/nba/luka-doncic-hawks-fans-exchange/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>17 stories in this edition, as of 07:30 Beijing time on November 11, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>To watch tomorrow: Nvidia must respond by November 11 to three U.S. House committee chairs' request for a closed-door briefing; November 11 is Veterans Day in the U.S., with the bond market closed and stocks trading as usual; Xi Jinping and Donald Trump are expected to meet on the sidelines of next week's APEC summit in Shenzhen.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 11, 2026 · Wednesday</span>
+        <span>No. 005 · 17 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 005</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>17 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月11日</strong>　星期三</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 17 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">标普500 · 11月10日收盘</div><div class="val">7,520.93</div><div class="chg down">跌 0.38%</div></div><div class="cell"><div class="label">纳斯达克 · 11月10日收盘</div><div class="val">25,065.88</div><div class="chg down">跌 0.74%</div></div><div class="cell"><div class="label">道琼斯 · 11月10日收盘</div><div class="val">52,231.89</div><div class="chg down">跌 0.30%</div></div><div class="cell"><div class="label">现货金 · 11月10日</div><div class="val">4,038.70美元/盎司</div><div class="chg down">跌 1.84%</div></div><div class="cell"><div class="label">布伦特原油 · 11月10日盘中</div><div class="val">90.18美元/桶</div><div class="chg down">跌 2.58%</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · 美国通胀与美联储</div>
+      <h1>美国10月通胀超预期，美联储12月加息几成定局</h1>
+      <p class="deck">10月CPI环比上涨0.4%，核心CPI上涨0.3%，均高于预期；美联储理事沃勒已放话，不排除12月加息50个基点。</p>
+      <div class="byline"><span>来源 <b>路透社</b></span><span>·</span><span>Investopedia</span></div>
+      <div class="lead-cols"><p>美国劳工部11月10日公布的数据显示，10月消费者价格指数（CPI）环比上涨0.4%，核心CPI上涨0.3%，各比市场预期高出0.1个百分点。由于统计口径问题，劳工部未公布同比数据，但路透社对101位经济学家的调查显示，美联储料将在12月再加息25个基点，把联邦基金利率目标区间推高至4.00%—4.25%，多数受访者认为这将是本轮周期的最后一次加息。</p><p>通胀数据出炉前，沃勒已在伦敦表示，即使10月通胀有所降温，美联储也应在12月加息；若核心CPI涨幅达到0.3%或更高，则应考虑加息50个基点。数据公布后，市场对12月加息的定价进一步升温，10年期美债收益率升至4.98%，美股三大指数全线收跌，纳斯达克跌幅居前。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/business/poll-fed-raise-rates-once-more-december-inflation-risks-stay-high-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文 →</a>&nbsp;&nbsp;<a class="readmore" href="https://www.investopedia.com/5-things-to-know-stock-market-november-10-2026-12244529" target="_blank" rel="noopener noreferrer">阅读原文 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">伊朗局势</div>
+        <h2 class="mini-head">油轮仍在霍尔木兹海峡起火，缓和希望遭遇现实考验</h2>
+        <p class="body-text">尽管市场押注美伊局势缓和，但路透社核实的视频与卫星图像显示，11月9日又有三艘油轮在霍尔木兹海峡附近遇袭，其中新加坡籍油轮Navig8 Messi在阿曼海岸附近起火。10月共有37艘船只遇袭，为战争爆发以来单月最高。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/energy/tankers-continue-burn-middle-east-despite-hopes-de-escalation-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">美国国会</div>
+        <h2 class="mini-head">众议院共和党选出吉姆·乔丹为下届国会少数党领袖</h2>
+        <p class="body-text">中期选举失利一周后，美国众议院共和党人11月10日以闭门秘密投票选出俄亥俄州众议员、众议院司法委员会主席吉姆·乔丹，出任下届国会共和党会议领袖。民主党在上周二的选举中赢得了众议院和参议院的较大多数席位。</p>
+        <p class="src">来源：路透社 · Punchbowl News · <a href="https://www.reuters.com/world/us/us-house-republicans-elect-jim-jordan-leader-next-congress-punchbowl-news-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>美国10月CPI超预期，美联储12月加息几成定局，沃勒甚至放话考虑加息50个基点。</li><li>特朗普暂缓对伊朗新一轮打击，油价大跌，但霍尔木兹海峡油轮仍在起火。</li><li>中国前10个月贸易顺差突破1万亿美元，AI硬件出口是主要推手。</li><li>Anthropic发布Claude Fable 5.2与Mythos 5.2，谷歌、Meta同日加码AI芯片与轻量模型。</li><li>文班亚马40分9盖帽率马刺九连胜，湖人东契奇32分击退老鹰。</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">伊朗局势</div>
+        <h4>鲁比奥：经济施压已见效，无需对伊朗发动大规模作战</h4>
+        <p class="body-text">美国国务卿鲁比奥11月10日在巴黎表示，制裁与海军封锁对伊朗造成的经济痛苦“非同寻常且与日俱增”，美国无需发动大规模军事打击也能实现目标。特朗普9日已表示暂缓新的军事打击。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/rubio-says-no-need-major-combat-operations-iran-given-us-economic-campaign-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版看点：华盛顿转向“以经济施压代替军事打击”对付伊朗，但霍尔木兹海峡的油轮仍在起火；美国国会共和党也在中期选举失利后重组领导层。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 05 条 · 中国贸易</div>
+    <h3>中国前10个月贸易顺差突破1万亿美元，AI硬件出口领跑</h3>
+    <p>中国海关11月10日公布的数据显示，10月出口同比增长35.2%至4,123亿美元，进口增长41.6%至3,071亿美元；1—10月贸易顺差约1.04万亿美元，连续第二年突破万亿美元，比去年提前一个月达标，有望刷新去年约1.2万亿美元的全年纪录。</p>
+    <p class="src">来源：Nikkei Asia · <a href="https://www.linkedin.com/posts/nikkeiasia_china-exports-stay-brisk-as-annual-trade-activity-7525803092659982336-nYi1" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 06 条 · 中加关系</div>
+    <h3>卡尼：本月APEC期间将会晤习近平，谈外国干预问题</h3>
+    <p>加拿大总理卡尼11月10日表示，他将于11月18日至19日在深圳举行的APEC峰会期间会晤中国国家主席习近平，并强调中国等国不应干涉加拿大的内部事务。北京方面长期否认寻求干预加拿大国内事务。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/china/carney-says-he-will-tell-xi-that-outsiders-should-not-meddle-canadas-affairs-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 07 条 · 亚太股市</div>
+    <h3>油价下滑提振亚太股市，日经重上6万点、韩国综合指数大涨</h3>
+    <p>受特朗普暂缓对伊朗军事打击、油价回落提振，亚洲股市11月10日上涨，日经225指数重回6万点上方，韩国综合指数涨约4.4%至5,239点，芯片股领涨。市场接下来聚焦美国10月CPI数据。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/china/global-markets-wrapup-1-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 08 条 · 美股收盘</div>
+    <h3>热CPI打压美股，标普跌0.38%、纳指跌0.74%，英伟达再跌5.5%</h3>
+    <p>美国股市11月10日收跌，标普500指数跌0.38%至7,520.93点，纳斯达克跌0.74%至25,065.88点，道琼斯跌0.30%至52,231.89点。10年期美债收益率升至4.98%。英伟达收跌5.47%至168.89美元，领跌道指成分股。</p>
+    <p class="src">来源：Investopedia · <a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11102026-12246538" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><div class="pullquote"><div class="big">−0.74%</div><div class="small">纳斯达克 11月10日收盘</div><div class="note">热 CPI 令 10 年期美债收益率升至 4.98%，12 月加息几成定局，科技股领跌。</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">第 09 条 · 美联储</div>
+    <h3>路透调查：美联储12月料再加息一次，通胀风险仍偏上行</h3>
+    <p>路透社11月6日至10日对101位经济学家的调查显示，美联储料在12月加息25个基点至4.00%—4.25%，约55%的受访者认为这将是本轮周期的最后一次加息。强劲的就业市场、具韧性的经济增长，以及连续近六年高于2%目标的通胀，都指向进一步收紧。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/poll-fed-raise-rates-once-more-december-inflation-risks-stay-high-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 10 条 · 欧洲股市</div>
+    <h3>油价回落提振情绪，欧洲股市逼近历史高点</h3>
+    <p>欧洲斯托克600指数11月10日上涨0.9%至662.54点，距8月初创下的历史高点不到1%，德国、法国、意大利基准股指均涨约1%。布伦特原油跌破90美元，缓解了能源驱动的通胀担忧，航空股领涨。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/markets/europe/european-shares-near-record-high-lower-oil-prices-boost-sentiment-2026-11-10/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 11 条 · 大模型</div>
+    <h3>Anthropic发布Claude Fable 5.2与Mythos 5.2，IPO前降价抢市场</h3>
+    <p>Anthropic 11月9日发布Claude Fable 5.2与Mythos 5.2，称其为迄今最强的模型：Fable面向编程、推理与智能体任务，Mythos面向经审核的网络安全与生命科学研究。两款模型输出速度比5.1版本快约30%，定价降至每百万输入tokens 8美元。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/technology/anthropic-unveils-new-fable-mythos-models-competition-heats-up-ahead-ipo-2026-11-09/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 12 条 · 英伟达</div>
+    <h3>英伟达董事会聘请Wachtell律所主导黄仁勋调查，股价两日重挫</h3>
+    <p>英伟达独立董事11月10日聘请Wachtell Lipton律所及前纽约南区代理联邦检察官Joon Kim，主导对首席执行官黄仁勋的独立调查。调查源于有关黄仁勋成为外国情报工作目标的报道；董事会称目前没有理由认为国家安全或公司机密已遭泄露。英伟达股价当日再跌5.5%。</p>
+    <p class="src">来源：纽约时报 · 华尔街日报 · <a href="https://www.talkesport.com/business/nvidia-wachtell-lipton-joon-kim-jensen-huang-investigation/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 13 条 · AI芯片</div>
+    <h3>谷歌推出TPU 8tx与8i Max，一年内四款第八代TPU齐发</h3>
+    <p>谷歌11月9日推出TPU 8tx与TPU 8i Max：前者面向安全与机密推理，数据与模型权重在使用中仍受保护；后者将两颗TPU 8i封装在一起，算力、片上内存与高带宽内存带宽翻倍，面向超长上下文与智能体工作负载。两款系统预计2027年上线。</p>
+    <p class="src">来源：彭博社 · 谷歌 · <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/?ref=thehype.news" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 14 条 · 轻量模型</div>
+    <h3>Meta推出最小最便宜的Muse Ember，主打智能体重复任务</h3>
+    <p>Meta 11月9日推出Muse系列最小、最高效的模型Muse Ember，面向智能体每天重复的工作：工具调用、编程子任务、路由、信息抽取与长文档解析。定价为每百万输入tokens 0.10美元、输出0.50美元，与Claude Haiku 5.5和OpenAI的GPT-6 Luna处于同一价位。</p>
+    <p class="src">来源：Meta · TechCrunch · <a href="https://medium.com/daily-post-of-ai/the-daily-post-of-ai-issue-36-111ed715219b" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 15 条 · 企业AI</div>
+    <h3>OpenAI把ChatGPT企业版上架AWS Marketplace，可计入云消费承诺</h3>
+    <p>OpenAI 11月9日宣布，ChatGPT企业版现已通过AWS Marketplace提供，企业可用现有的AWS采购与账单关系购买和管理，符合条件的支出可计入AWS消费承诺。套餐涵盖Chat、ChatGPT Work、Codex与dots，功能与直接购买版本相同。</p>
+    <p class="src">来源：OpenAI · AWS · <a href="https://www.unite.ai/openai-starts-selling-chatgpt-enterprise-through-aws-marketplace/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 16 条 · NBA</div>
+    <h3>文班亚马40分9盖帽，马刺大胜太阳豪取九连胜</h3>
+    <p>圣安东尼奥马刺11月10日以122比96大胜菲尼克斯太阳，豪取九连胜。文班亚马仅出场25分钟便拿下40分11个篮板，另有9次盖帽，投篮19投15中；这是他本赛季第三场40+，过去六场比赛中第三次。</p>
+    <p class="src">来源：Pro Football Network · <a href="https://www.profootballnetwork.com/nba/wembanyama-performance-fans-react-suns/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 17 条 · NBA</div>
+    <h3>东契奇32分10助攻，湖人124比114击败老鹰取六连胜</h3>
+    <p>洛杉矶湖人11月10日客场124比114击败亚特兰大老鹰，豪取六连胜，战绩提升至10胜2负。东契奇伤愈复出，拿下32分10助攻8篮板5抢断，并在比赛中与老鹰球迷隔空喊话。</p>
+    <p class="src">来源：Pro Football Network · <a href="https://www.profootballnetwork.com/nba/luka-doncic-hawks-fans-exchange/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 17 条，截至北京时间2026年11月11日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>明天值得跟踪：英伟达须在11月11日前回应美国国会三位委员会主席的闭门简报要求；11月11日为美国退伍军人节，债市休市，股市照常交易；下周深圳APEC峰会期间习近平与特朗普预计会晤。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月11日 · 星期三</span>
+        <span>第 005 期 · 共 17 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
