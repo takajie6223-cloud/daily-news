@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily News · November 7, 2026 · No. 001</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en" checked>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh">
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 001</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>17 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 7, 2026</strong> &nbsp;·&nbsp; Saturday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>17 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">Nasdaq · Thu</div><div class="val">24,315</div><div class="chg down">▼ 5.5% · Into correction</div></div><div class="cell"><div class="label">S&amp;P 500 · Week</div><div class="val">—</div><div class="chg down">▼ 2.7% · Fourth straight weekly loss</div></div><div class="cell"><div class="label">Nikkei 225 · Fri</div><div class="val">57,434</div><div class="chg down">▼ 6.0% · Into bear market</div></div><div class="cell"><div class="label">Gold · $/oz</div><div class="val">4,064.50</div><div class="chg up">▲ 4.6% · Biggest weekly gain since August</div></div><div class="cell"><div class="label">Brent Crude · $/bbl</div><div class="val">98.29</div><div class="chg up">▲ About 4% · Rebound after tanker attack</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Top Story · U.S. Midterm Elections</div>
+      <h1>Democrats Sweep House and Senate, Trump Faces Divided Government</h1>
+      <p class="deck">In the Nov. 3 midterms, Democrats won control of both chambers of Congress — gaining at least 40 seats in the House, flipping at least seven Senate seats, and taking five governorships including Texas. High living costs and the Iran war were the main sources of voter anger.</p>
+      <div class="byline"><span>Source <b>Reuters</b></span><span>·</span><span>Le Monde data visualization</span><span>·</span><span>New Congress takes office in January</span></div>
+      <div class="lead-cols"><p>It was a sweeping “blue wave.” The seven flipped Senate states were Texas, Kansas, Maine, North Carolina, Ohio, South Carolina and Iowa — several long considered Republican strongholds, a sign that discontent had spread well beyond the Democratic base. A net House gain of at least 40 seats also gives Democrats real veto power over legislation and spending.</p><p>Washington moved quickly to reorganize after the vote: personnel shake-ups, policy shifts and a market repricing all at once. Democrats have vowed to push for restoring aid to Ukraine in the new Congress, while Trump's veto remains the biggest variable; meanwhile, expectations of tighter AI regulation triggered a sharp global stock selloff (see Economy &amp; Markets). The divided-government fight has only just begun.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/commentary/reuters-open-interest/washington-reset-market-meltdown-iran-oil-bet-financial-week-five-charts-2026-11-06/" target="_blank" rel="noopener noreferrer">Reuters original →</a>&nbsp;&nbsp;<a class="readmore" href="https://www.lemonde.fr/en/les-decodeurs/article/2026/11/04/2026-us-midterms-visualize-the-first-takeaways-with-our-graphs-and-maps_6771976_8.html" target="_blank" rel="noopener noreferrer">Le Monde charts →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">Washington · Post-election shake-up</div>
+        <h2 class="mini-head">White House Shake-up: Miller Named Chief of Staff, Two Senior Justice Officials Resign</h2>
+        <p class="body-text">Trump named Stephen Miller as White House chief of staff, succeeding Susie Wiles. John Eisenberg, head of the Justice Department's national security division, and Jason Reding Quiñones, who had investigated Trump's earlier cases, resigned on Friday, following civil rights chief Harmeet Dhillon's departure on Thursday, as the post-election exodus accelerated.</p>
+        <p class="src">Source: South China Morning Post · Reuters · <a href="https://www.reuters.com/legal/government/two-top-justice-department-officials-resign-post-election-exodus-accelerates-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px"></div>
+        <h2 class="mini-head">Trump Says He Will Soon Decide Whether to Resume Strikes on Iran</h2>
+        <p class="body-text">After U.S. forces carried out a “defensive” strike on Qeshm Island near the Strait of Hormuz on Nov. 3, Trump said after meeting his national security team that he would decide soon, adding that talks were continuing and Iran had delivered a nuclear proposal via Qatar. Qatari mediation continues, but the two sides remain far apart.</p>
+        <p class="src">Source: Reuters / Financial Times · <a href="https://bworldonline.com/world/2026/11/04/791441/iran-us-still-far-apart-on-deal-trump-says-ready-but-in-no-hurry-for-strikes/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>Democrats sweep both chambers as divided government takes shape</li><li>PLA suspected of large-scale unannounced drills encircling Taiwan</li><li>Global stocks hit by an “AI selloff” — Nikkei in a bear market, Korean stocks trigger circuit breaker</li><li>Anthropic valuation may be halved; OpenAI completes $11 billion raise</li><li>Ronaldo retires from Portugal, ending a 23-year international career</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">Ukraine</div>
+        <h4>Democratic Win Could Push to Restore Aid to Ukraine</h4>
+        <p class="body-text">Democratic aides in both chambers told Reuters that stepping up aid to Ukraine will be a priority once the new Congress takes office in January, a prospect welcomed by Zelenskyy; but Trump still holds the veto, and overriding it would require mustering enough votes. U.S.–Ukraine–Russia talks resume next week.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/legal/government/can-us-democrats-blue-wave-election-sweep-buoy-ukraine-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">This section's four stories appear on the front page: the midterms and divided government, the pending decision on strikes against Iran, the White House and Justice Department shake-up, and the outlook for aid to Ukraine. Global attention remains fixed on the aftershocks in Washington and the next move in the Strait of Hormuz.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 05 · Taiwan Strait</div>
+    <h3>PLA Suspected of Large-Scale Unannounced Drills Encircling Taiwan</h3>
+    <p>According to a Nov. 6 update from the Institute for the Study of War, China may be holding a large-scale unannounced exercise simulating the encirclement and isolation of Taiwan. Taiwan said more than 100 PLA Navy and Coast Guard vessels were active in the western Pacific, the Liaoning carrier group had moved into the western Pacific, and the Fujian carrier had been spotted leaving its Sanya base.</p>
+    <p class="src">Source: Institute for the Study of War · <a href="https://understandingwar.org/research/china-taiwan/china-taiwan-update-november-6-2026/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 06 · Diplomacy</div>
+    <h3>Taiwan Shuts Papua New Guinea Office and Stops Buying Its LNG</h3>
+    <p>Taiwan announced on Friday that it was closing its representative office in Papua New Guinea and halting spot-market LNG purchases from the country, blaming pressure from China. PNG had ordered Taiwanese staff to leave within a deadline; Taiwan now has only 12 formal diplomatic allies left.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/asia-pacific/taiwan-shuts-papua-new-guinea-office-ends-lng-buying-citing-chinese-pressure-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 07 · Relations</div>
+    <h3>China–Japan Freeze Continues; U.S.–China Trade Chiefs Talk Ahead of Shenzhen Xi–Trump Meeting</h3>
+    <p>A year after Sanae Takaichi's Nov. 7 “Taiwan contingency” remarks, China–Japan relations remain deadlocked, with Beijing maintaining export controls and travel restrictions on Japan, and it is still unclear whether the two leaders will meet on the sidelines of the Nov. 18 APEC summit in Shenzhen. Meanwhile, U.S. and Chinese trade chiefs have spoken by phone to prepare for the Shenzhen Xi–Trump meeting.</p>
+    <p class="src">Source: Seoul Economic Daily · South China Morning Post · <a href="https://en.sedaily.com/international/2026/11/06/a-year-after-takaichis-taiwan-remark-china-japan-ties-stay" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 08 · Global Markets</div>
+    <h3>Global Stocks Hit by “AI Selloff”: Nasdaq in Correction, Nikkei in Bear Market, Korean Stocks Halted</h3>
+    <p>Fears of tighter AI regulation after the Democratic sweep gave U.S. stocks their worst day since April 2025 on Thursday: the Nasdaq fell 5.5% to 24,315, entering correction territory, the S&amp;P fell 4.4%, the Dow dropped 1,833 points, the Philadelphia Semiconductor Index plunged over 12%, and about $3.2 trillion in U.S. market value was wiped out in a day.</p><p>The selloff spread to Asia-Pacific on Friday: the Nikkei fell 6% to 57,434, down more than 20% from its June high and into a bear market, South Korea's KOSPI fell more than 8% intraday and triggered a circuit breaker, and Taiwan stocks fell 4.5%. U.S. stocks rebounded slightly on Friday after strong jobs data, but the S&amp;P still fell 2.7% for the week, its fourth straight weekly loss.</p>
+    <p class="src">Source: Reuters · The Wall Street Journal · <a href="https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-11-06/" target="_blank" rel="noopener noreferrer">Reuters original</a> · <a href="https://www.wsj.com/finance/investing/what-the-midterm-shake-up-means-for-markets-and-investors-b1135215" target="_blank" rel="noopener noreferrer">The Wall Street Journal</a></p>
+  </article><div class="pullquote"><div class="big">Wiped out in a day
+$3.2 trillion</div><div class="small">U.S. market value lost Thursday · Worst single day since April 2025</div><div class="note">Philadelphia Semiconductor Index down over 12%
+Nvidia down over 9% · AMD down 17% · SanDisk down 22%</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">No. 09 · Jobs &amp; Central Banks</div>
+    <h3>U.S. Adds 165,000 Jobs in October, Beating Forecasts; Jobless Rate Falls to 4.1%; Bank of England Raises Rates to 4%</h3>
+    <p>U.S. nonfarm payrolls rose by 165,000 in October, well above expectations of about 60,000, while the unemployment rate fell from 4.2% to 4.1% and August–September figures were revised up by a combined 84,000. Markets still expect a Fed rate hike in December, with odds around 65%–70%, and Tuesday's October CPI will be the key test. The Bank of England raised rates by 25 basis points to 4% on Thursday, its first hike since August 2023.</p>
+    <p class="src">Source: The Wall Street Journal · Reuters · <a href="https://www.wsj.com/finance/investing/u-s-treasurys-little-changed-markets-await-employment-data-88f3f2b6" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 10 · Commodities</div>
+    <h3>Oil Swings Wildly as Gold Posts Biggest Weekly Gain Since August</h3>
+    <p>Brent crude briefly fell below $100 on Wednesday to about $94, its biggest weekly drop since 2020, as markets bet the midterm results would push toward de-escalation of the Iran war; it rebounded nearly 4% to $98.29 on Thursday after a Gulf tanker attack. Gold, lifted by safe-haven demand, rose 4.6% on the week to $4,064.50 an ounce, its biggest weekly gain since August.</p>
+    <p class="src">Source: Bloomberg · The Wall Street Journal · <a href="https://www.moneyweb.co.za/news/markets/gold-set-for-biggest-weekly-gain-since-august-after-us-midterms/" target="_blank" rel="noopener noreferrer">Gold original</a> · <a href="https://www.wsj.com/finance/commodities-futures/gold-continues-to-rise-amid-better-risk-sentiment-e2d133ff" target="_blank" rel="noopener noreferrer">The Wall Street Journal</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 11 · AI</div>
+    <h3>Anthropic IPO Valuation May Halve to $1 Trillion; OpenAI Scraps Plan to List This Year</h3>
+    <p>Hit by the market rout, AI unicorn Anthropic's IPO valuation target has reportedly fallen from the $2 trillion sought a month ago to $1 trillion–$1.3 trillion, and prediction markets now put the odds of a listing before Dec. 1 at about 50%, down from 80%. Its main rival OpenAI has cancelled its plan to go public this year, and The Wall Street Journal says big investors doubt Anthropic can achieve a $1.5 trillion valuation.</p>
+    <p class="src">Source: TipRanks · The Wall Street Journal · <a href="https://www.tipranks.com/news/anthropics-valuation-could-be-cut-in-half-to-1-trillion-after-market-rout" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 12 · Companies</div>
+    <h3>Tesla to End Cybertruck Production, Apple Issues $7.5B in Bonds; Chip Stocks Lead the Fall</h3>
+    <p>Forbes reported that Tesla will phase out production of the Cybertruck at its Texas plant after the model underperformed in the market. Apple issued $7.5 billion in investment-grade bonds. Chip stocks were the worst hit in the selloff: Nvidia fell over 9% on Thursday, AMD dropped 17% and SanDisk 22%, while Jensen Huang's personal wealth shrank by about $12 billion in a day.</p>
+    <p class="src">Source: Forbes · <a href="https://forbeseu.com/category/news/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 13 · Funding</div>
+    <h3>OpenAI Completes $11 Billion Raise at a $1.25 Trillion Valuation</h3>
+    <p>As reported by Bloomberg and confirmed by Reuters on Nov. 6, OpenAI has closed the first $11 billion of a new funding round at a valuation of $1.25 trillion. The round is not yet complete and is expected to close in the coming weeks, potentially reaching about $20 billion in total. Bloomberg previously said OpenAI had planned to seek about $30 billion at a valuation of about $1.4 trillion, a sign investor enthusiasm has cooled after the AI stock plunge.</p>
+    <p class="src">Source: Reuters · Bloomberg · <a href="https://www.reuters.com/business/openai-secures-11-billion-funding-125-trillion-valuation-bloomberg-news-reports-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 14 · Chips</div>
+    <h3>TSMC Weighs Making Advanced Memory Chips, Planning 3D DRAM at Nvidia's Request</h3>
+    <p>Reuters reported on Nov. 6, citing The Information, that TSMC is considering entering advanced memory chips and has begun planning production of an advanced memory chip called 3D DRAM at the request of its biggest customer, Nvidia. The move comes as an AI-driven shortage of memory chips pushes prices up and designers scramble for new supply; if it proceeds, TSMC would compete with Samsung Electronics, SK hynix and Micron, though the production timeline is unclear.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/asia-pacific/tsmc-considers-making-advanced-memory-chips-information-reports-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 15 · Data Centers</div>
+    <h3>OpenAI Says It Will Press Ahead With U.S. Data Center Expansion Despite Tighter Post-Election Oversight</h3>
+    <p>Reuters reported on Nov. 6 that OpenAI CFO Sarah Friar told CNBC the company will proceed with its U.S. data center expansion as planned, despite concerns that the Democrats' midterm sweep could tighten data center regulation and slow construction. She said third-quarter business grew 70% quarter on quarter and enterprise demand doubled, and that the company is raising new capital. Google announced the same week it would invest $17 billion in its first data center in Wyoming.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/retail-consumer/openai-press-ahead-with-data-center-expansion-despite-midterm-sweep-cfo-tells-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 16 · Sport</div>
+    <h3>Ronaldo Announces Retirement From Portugal, Ending a 23-Year International Career</h3>
+    <p>Cristiano Ronaldo, 41, announced on Thursday that he is retiring from the Portugal national team, ending a 23-year international career with men's world records of 234 caps and 146 goals. He fell out with head coach Jorge Jesus over playing time in September, and his last international match was a 1–0 win over Wales on Sept. 24. He will continue playing for Al-Nassr, chasing his 1,000th career goal (currently 985).</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/sports/soccer/portugal-pledge-honour-ronaldo-jesus-names-first-squad-after-captains-retirement-2026-11-06/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 17 · Diary</div>
+    <h3>New Zealand Votes Today; COP31 Opens Monday; Pope Begins Latin America Trip</h3>
+    <p>New Zealand holds its general election today in a race too close to call. The UN COP31 climate summit opens next Monday (Nov. 9) in Antalya, Türkiye, with more than 80 world leaders expected to attend through Nov. 20. Pope Leo XIV departed Friday for a 12-day visit to Uruguay, Argentina and Peru, just weeks after lung cancer surgery.</p>
+    <p class="src">Source: Reuters · <a href="https://www.devdiscourse.com/article/international/4002779-diary-political-and-general-news-events-from-november-6?amp" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>17 stories in this edition, as of 07:30 Beijing time on November 7, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>Next edition tomorrow (Sunday, Nov. 8) at 07:30. Tracking: the Iran decision, New Zealand election results, a COP31 preview, and the outlook for U.S. stocks next week.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 7, 2026 · Saturday</span>
+        <span>No. 001 · 17 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 001</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>17 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月7日</strong>　星期六</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 17 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">纳斯达克 · 周四</div><div class="val">24,315</div><div class="chg down">▼ 5.5% · 进入回调</div></div><div class="cell"><div class="label">标普 500 · 本周</div><div class="val">—</div><div class="chg down">▼ 2.7% · 连跌四周</div></div><div class="cell"><div class="label">日经 225 · 周五</div><div class="val">57,434</div><div class="chg down">▼ 6.0% · 跌入熊市</div></div><div class="cell"><div class="label">黄金 · 美元/盎司</div><div class="val">4,064.50</div><div class="chg up">▲ 4.6% · 8月来最大周涨</div></div><div class="cell"><div class="label">布伦特原油 · 美元/桶</div><div class="val">98.29</div><div class="chg up">▲ 约 4% · 油轮遇袭后反弹</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · 美国中期选举</div>
+      <h1>民主党横扫参众两院，特朗普将面对分治政府</h1>
+      <p class="deck">11月3日中期选举，民主党赢得参众两院控制权——众议院至少净增40席，参议院翻转至少7席，并拿下得州等5个州长席位。生活成本高企与伊朗战争，成为选民不满的主因。</p>
+      <div class="byline"><span>来源 <b>路透社</b></span><span>·</span><span>《世界报》数据可视化</span><span>·</span><span>新国会将于明年1月就职</span></div>
+      <div class="lead-cols"><p>这是一次全面的“蓝色浪潮”。参议院翻转的七个州包括得州、堪萨斯、缅因、北卡罗来纳、俄亥俄、南卡罗来纳与艾奥瓦——其中数州长期被视为共和党票仓，翻转本身即说明不满情绪已溢出基本盘。众议院净增至少40席，更让民主党在立法与拨款上握有实质否决能力。</p><p>选后华盛顿迅速进入重组：人事震荡、政策转向与市场重估同时发生。民主党已放话将在新国会推动恢复对乌援助，而特朗普的否决权仍是最大变数；与此同时，AI监管收紧的预期直接触发了全球股市的剧烈抛售（详见经济与市场版）。分治政府的博弈，才刚刚开始。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/commentary/reuters-open-interest/washington-reset-market-meltdown-iran-oil-bet-financial-week-five-charts-2026-11-06/" target="_blank" rel="noopener noreferrer">路透社原文 →</a>&nbsp;&nbsp;<a class="readmore" href="https://www.lemonde.fr/en/les-decodeurs/article/2026/11/04/2026-us-midterms-visualize-the-first-takeaways-with-our-graphs-and-maps_6771976_8.html" target="_blank" rel="noopener noreferrer">《世界报》图表 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">华盛顿 · 选后震荡</div>
+        <h2 class="mini-head">白宫人事震荡：米勒出任幕僚长，司法部两名高官辞职</h2>
+        <p class="body-text">特朗普任命斯蒂芬·米勒为白宫幕僚长，接替苏茜·怀尔斯；司法部国家安全部门负责人约翰·艾森伯格和负责调查特朗普旧案的杰森·雷丁·基尼奥内斯周五辞职，此前民权部门负责人哈米特·迪隆已于周四离任，选后离职潮加速。</p>
+        <p class="src">来源：南华早报 · 路透社 · <a href="https://www.reuters.com/legal/government/two-top-justice-department-officials-resign-post-election-exodus-accelerates-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px"></div>
+        <h2 class="mini-head">特朗普称将很快决定是否恢复对伊朗军事打击</h2>
+        <p class="body-text">美军 11 月 3 日对霍尔木兹海峡附近的格什姆岛实施了“防御性”打击后，特朗普在会见国家安全团队后表示将很快做出决定，同时称谈判仍在进行，伊朗已通过卡塔尔递交核提案。卡塔尔斡旋仍在继续，但双方分歧仍大。</p>
+        <p class="src">来源：路透社 / 金融时报 · <a href="https://bworldonline.com/world/2026/11/04/791441/iran-us-still-far-apart-on-deal-trump-says-ready-but-in-no-hurry-for-strikes/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>民主党横扫两院，分治政府成形</li><li>解放军疑似大规模围台演习</li><li>全球股市“AI抛售”，日经入熊、韩股熔断</li><li>Anthropic 估值或腰斩，OpenAI 完成 110 亿美元融资</li><li>C罗退出国家队，23年传奇落幕</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">乌克兰</div>
+        <h4>民主党胜选或推动恢复对乌援助</h4>
+        <p class="body-text">民主党参众两院助手向路透社表示，在明年 1 月新国会就职后，加大对乌克兰援助将是优先事项，泽连斯基对此表示欢迎；但特朗普仍掌握否决权，且须争取到足以推翻否决的票数。美乌俄三方会谈将于下周恢复。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/legal/government/can-us-democrats-blue-wave-election-sweep-buoy-ukraine-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版四条已列于头版：中期选举与分治政府、对伊打击决定待发、白宫与司法部人事震荡、对乌援助前景。全球目光仍集中在华盛顿选后的连锁反应，以及霍尔木兹海峡的下一步走向。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 05 条 · 台海</div>
+    <h3>解放军疑似举行未宣布的大规模围台演习</h3>
+    <p>据战争研究所 11 月 6 日更新，中国可能正在举行一场未宣布的大规模演习，模拟包围、孤立台湾；台方称西太平洋有逾 100 艘解放军海军和海警船只活动，辽宁舰战斗群已前出西太平洋，福建舰也被发现驶离三亚基地。</p>
+    <p class="src">来源：战争研究所 · <a href="https://understandingwar.org/research/china-taiwan/china-taiwan-update-november-6-2026/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 06 条 · 外交</div>
+    <h3>台湾关闭巴布亚新几内亚办事处并停购其液化天然气</h3>
+    <p>台湾周五宣布关闭驻巴布亚新几内亚代表处，并停止从该国现货市场采购液化天然气，指责中国施压。巴新曾要求台方人员限期离境；台湾目前仅剩 12 个正式“邦交国”。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/asia-pacific/taiwan-shuts-papua-new-guinea-office-ends-lng-buying-citing-chinese-pressure-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 07 条 · 关系</div>
+    <h3>中日关系持续冻结；中美贸易首脑通话为深圳“习特会”铺路</h3>
+    <p>高市早苗去年 11 月 7 日发表“台湾有事”言论一周年之际，中日关系仍处僵局，中方维持出口管制、赴日旅游限制等施压措施，双方能否在 11 月 18 日深圳 APEC 峰会期间举行首脑会谈仍不明朗。与此同时，中美贸易首脑已通电话，为深圳“习特会”做准备。</p>
+    <p class="src">来源：首尔经济日报 · 南华早报 · <a href="https://en.sedaily.com/international/2026/11/06/a-year-after-takaichis-taiwan-remark-china-japan-ties-stay" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 08 条 · 全球市场</div>
+    <h3>全球股市遭遇“AI 抛售”：纳指进入回调，日经跌入熊市、韩股熔断</h3>
+    <p>受民主党胜选后 AI 监管收紧担忧冲击，美股周四创 2025 年 4 月以来最差单日表现：纳指跌 5.5% 至 24,315 点、进入回调，标普跌 4.4%，道指跌 1,833 点，费城半导体指数跌逾 12%，美股单日蒸发约 3.2 万亿美元。</p><p>周五抛售蔓延至亚太：日经跌 6% 至 57,434 点、较 6 月高点跌超 20% 进入熊市，韩国 KOSPI 盘中一度跌超 8% 并触发熔断，台股跌 4.5%。周五美股在强劲就业数据后小幅反弹，但标普全周仍跌 2.7%，为连续第四周下跌。</p>
+    <p class="src">来源：路透社 · 华尔街日报 · <a href="https://www.reuters.com/business/take-five/global-markets-themes-graphic-2026-11-06/" target="_blank" rel="noopener noreferrer">路透原文</a> · <a href="https://www.wsj.com/finance/investing/what-the-midterm-shake-up-means-for-markets-and-investors-b1135215" target="_blank" rel="noopener noreferrer">华尔街日报</a></p>
+  </article><div class="pullquote"><div class="big">单日蒸发
+3.2 万亿美元</div><div class="small">美股周四市值损失 · 2025年4月以来最差单日</div><div class="note">费城半导体指数跌逾 12%
+英伟达跌超 9% · AMD 跌 17% · 闪迪跌 22%</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">第 09 条 · 就业与央行</div>
+    <h3>美国10月新增就业16.5万超预期，失业率降至4.1%；英国央行加息至4%</h3>
+    <p>美国 10 月非农就业新增 16.5 万人，远超约 6 万的预期，失业率从 4.2% 降至 4.1%，8、9 月数据合计上修 8.4 万人；市场仍预计美联储 12 月加息，概率约 65%–70%，下周二的 10 月 CPI 将是关键考验。英国央行周四加息 25 个基点至 4%，为 2023 年 8 月以来首次加息。</p>
+    <p class="src">来源：华尔街日报 · 路透社 · <a href="https://www.wsj.com/finance/investing/u-s-treasurys-little-changed-markets-await-employment-data-88f3f2b6" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 10 条 · 大宗商品</div>
+    <h3>油价大起大落，黄金创8月以来最大周涨幅</h3>
+    <p>布伦特原油周三一度跌破 100 美元、跌至约 94 美元，创 2020 年以来最大周跌幅，因市场押注中期选举结果将推动伊朗战争降温；周四海湾油轮遇袭后反弹近 4% 至 98.29 美元。黄金则受益于避险需求，周涨 4.6% 至 4,064.50 美元/盎司，创 8 月以来最大单周涨幅。</p>
+    <p class="src">来源：彭博社 · 华尔街日报 · <a href="https://www.moneyweb.co.za/news/markets/gold-set-for-biggest-weekly-gain-since-august-after-us-midterms/" target="_blank" rel="noopener noreferrer">黄金原文</a> · <a href="https://www.wsj.com/finance/commodities-futures/gold-continues-to-rise-amid-better-risk-sentiment-e2d133ff" target="_blank" rel="noopener noreferrer">华尔街日报</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 11 条 · 人工智能</div>
+    <h3>Anthropic IPO估值或腰斩至1万亿美元，OpenAI取消年内上市计划</h3>
+    <p>受市场暴跌拖累，AI 独角兽 Anthropic 的 IPO 估值目标据报已从一个月前寻求的 2 万亿美元降至 1 万亿–1.3 万亿美元，预测市场对其 12 月 1 日前上市的概率已从 80% 跌至约 50%；其主要对手 OpenAI 已取消年内 IPO 计划，华尔街日报称大投资者怀疑 Anthropic 能否实现 1.5 万亿美元估值。</p>
+    <p class="src">来源：TipRanks · 华尔街日报 · <a href="https://www.tipranks.com/news/anthropics-valuation-could-be-cut-in-half-to-1-trillion-after-market-rout" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 12 条 · 公司</div>
+    <h3>特斯拉将停产Cybertruck，苹果发债75亿美元；芯片股领跌</h3>
+    <p>福布斯报道，特斯拉将逐步停产得州工厂的 Cybertruck，该车型市场表现不佳；苹果则发行了 75 亿美元投资级债券；芯片股是本轮抛售的重灾区：英伟达周四跌超 9%，AMD 跌 17%，闪迪跌 22%，黄仁勋个人财富单日缩水约 120 亿美元。</p>
+    <p class="src">来源：福布斯 · <a href="https://forbeseu.com/category/news/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 13 条 · 融资</div>
+    <h3>OpenAI完成110亿美元融资，估值达1.25万亿美元</h3>
+    <p>据彭博社报道、路透社 11 月 6 日证实，OpenAI 已完成新一轮融资的首批 110 亿美元，估值达 1.25 万亿美元；该轮尚未完全结束，预计未来几周完成，总额可能达到约 200 亿美元。此前彭博社称其原计划寻求约 300 亿美元、估值约 1.4 万亿美元，显示在 AI 股大跌之后，投资者热情有所降温。</p>
+    <p class="src">来源：路透社 · 彭博社 · <a href="https://www.reuters.com/business/openai-secures-11-billion-funding-125-trillion-valuation-bloomberg-news-reports-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 14 条 · 芯片</div>
+    <h3>台积电考虑生产先进存储芯片，应英伟达要求规划3D DRAM</h3>
+    <p>路透社 11 月 6 日援引《The Information》报道，台积电正考虑进军先进存储芯片领域，已应其最大客户英伟达的要求，开始规划生产一种名为 3D DRAM 的先进存储芯片。此举正值 AI 驱动的存储芯片严重短缺推高价格、芯片设计商四处寻找新增供应之际；若推进，台积电将与三星电子、SK 海力士和美光展开竞争，但投产时间尚不明确。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/asia-pacific/tsmc-considers-making-advanced-memory-chips-information-reports-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 15 条 · 数据中心</div>
+    <h3>OpenAI称将继续推进美国数据中心扩张，不惧选后监管收紧</h3>
+    <p>路透社 11 月 6 日报道，OpenAI 首席财务官萨拉·弗里亚尔向 CNBC 表示，尽管民主党中期选举大胜引发对数据中心监管收紧、建设放缓的担忧，公司仍将按计划推进美国数据中心扩张。她称公司第三季度业务环比增长 70%、企业需求翻倍，并正在筹集新资本；谷歌同周宣布将投资 170 亿美元，在怀俄明州建设其首个数据中心。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/retail-consumer/openai-press-ahead-with-data-center-expansion-despite-midterm-sweep-cfo-tells-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 16 条 · 体育</div>
+    <h3>C罗宣布退出葡萄牙国家队，23年传奇生涯落幕</h3>
+    <p>41 岁的克里斯蒂亚诺·罗纳尔多周四宣布退出葡萄牙国家队，结束 23 年国脚生涯，留下 234 次出场、146 粒进球两项男子国际足坛纪录。他与主帅若热·热苏斯因 9 月出场时间问题决裂，最后一场国家队比赛是 9 月 24 日 1 比 0 战胜威尔士；他将继续效力利雅得胜利，冲击职业生涯第 1,000 球（目前 985 球）。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/sports/soccer/portugal-pledge-honour-ronaldo-jesus-names-first-squad-after-captains-retirement-2026-11-06/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 17 条 · 日程</div>
+    <h3>新西兰今日大选；COP31下周一开幕；教皇开启拉美之行</h3>
+    <p>新西兰今日举行大选，选情胶着难分胜负；联合国 COP31 气候峰会将于下周一（11 月 9 日）在土耳其安塔利亚开幕，80 多位世界领导人预计出席，会期至 11 月 20 日；教皇利奥十四世周五启程访问乌拉圭、阿根廷和秘鲁，为期 12 天，距其接受肺癌手术仅数周。</p>
+    <p class="src">来源：路透社 · <a href="https://www.devdiscourse.com/article/international/4002779-diary-political-and-general-news-events-from-november-6?amp" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 17 条，截至北京时间2026年11月7日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>明日（11月8日，星期日）07:30 继续出报。重点跟踪：伊朗局势决定、新西兰大选结果、COP31开幕前瞻，以及美股下周开盘前瞻。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月7日 · 星期六</span>
+        <span>第 001 期 · 共 17 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
