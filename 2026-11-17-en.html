@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily News · November 17, 2026 · No. 011</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en" checked>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh">
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 011</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>17 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 17, 2026</strong> &nbsp;·&nbsp; Tuesday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>17 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">S&amp;P 500 · Close, Nov 16</div><div class="val">7,416.59</div><div class="chg down">Down 1.92%</div></div><div class="cell"><div class="label">Nasdaq Composite · Close, Nov 16</div><div class="val">24,509.76</div><div class="chg down">Down 2.49%, more than 10% below its October high</div></div><div class="cell"><div class="label">Dow Jones · Close, Nov 16</div><div class="val">51,608.17</div><div class="chg down">Down 1.41%, off 739 points</div></div><div class="cell"><div class="label">Nikkei 225 · Close, Nov 16</div><div class="val">59,662.02</div><div class="chg down">Down 2.42%, below 60,000</div></div><div class="cell"><div class="label">Spot gold · Nov 16</div><div class="val">$3,848/oz</div><div class="chg down">Down about 1%, a fresh one-year low</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Front Page · China–U.S.–Russia Trilateral Meeting</div>
+      <h1>Xi, Trump and Putin to Hold First-Ever Trilateral Meeting in Shenzhen on Thursday; Kremlin Says It Will Have a Major Impact on Global Affairs</h1>
+      <p class="deck">The three leaders will meet on the sidelines of the APEC summit, with Ukraine and nuclear arms control expected to top the agenda; Trump also said he might meet Kim Jong Un in China.</p>
+      <div class="byline"><span>Source <b>Reuters</b></span></div>
+      <div class="lead-cols"><p>The Kremlin said on Monday that Russian President Vladimir Putin, Chinese President Xi Jinping and U.S. President Donald Trump are scheduled to hold a trilateral meeting in Shenzhen on Thursday, at Xi's official residence. Kremlin aide Yuri Ushakov said it would be the first meeting of its kind and would have a major impact on global affairs. China's Foreign Ministry confirmed the same day that the meeting will take place on the sidelines of the APEC summit, describing it as the first face-to-face meeting of the three heads of state.
+
+The White House said last week that Trump would raise efforts to reduce nuclear arms at the meeting. Trump said on Monday that he planned to discuss Russia's war in Ukraine with Xi and Putin in Shenzhen, and that he might meet North Korean leader Kim Jong Un in China. The Kremlin said Putin could meet Kim if he also came to China for the APEC summit. This year's APEC Economic Leaders' Meeting will be held in Shenzhen on November 18–19 under the theme of building an Asia-Pacific community to prosper together.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/world/china/kremlin-says-putin-xi-trump-meeting-china-will-have-major-impact-global-affairs-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original →</a> · <a class="readmore" href="https://www.reuters.com/world/asia-pacific/chinese-us-business-leaders-attend-apec-summit-shenzhen-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">U.S. Stocks</div>
+        <h2 class="mini-head">Nasdaq Slides Into Correction, Down 2.49% on Monday as the AI Sell-Off Enters a Third Day</h2>
+        <p class="body-text">U.S. stocks fell for a third straight session on Monday. The Nasdaq Composite dropped 2.49% to 24,509.76, more than 10% below its October 6 high and officially in correction territory; the S&amp;P 500 fell 1.92% to 7,416.59 and the Dow lost 1.41% to 51,608.17.
+
+Nvidia fell 4.12% to $156.14 and the Philadelphia Semiconductor Index dropped 5.28%. Investors now await Nvidia's earnings after Tuesday's close and Anthropic's listing later in the week as the next tests of the AI trade.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">Chip Exports</div>
+        <h2 class="mini-head">U.S. Issues New AI-Chip Rule to Close the Remote-Access Loophole via Third-Country Data Centres</h2>
+        <p class="body-text">The U.S. Commerce Department issued a rule on Monday to protect against remote access to advanced AI chips through data centres in third countries, aiming to ensure existing restrictions on sensitive American technology cannot be circumvented. Reuters noted the rule could further curb China's access to advanced AI chips, as President Donald Trump departs for Asia to meet Chinese President Xi Jinping.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>Xi, Trump and Putin will hold their first-ever trilateral meeting in Shenzhen on Thursday, with Ukraine and nuclear arms control in focus.</li><li>The Nasdaq slides into correction: down 2.49% on Monday, with Nvidia's earnings due tonight.</li><li>The U.S. issues a new AI-chip rule closing the loophole for remote access via data centres in third countries.</li><li>Carney meets Xi in Shenzhen today to talk food, energy and financial-services cooperation.</li><li>Anthropic's listing enters the countdown: pricing on November 18, trading on Nasdaq on November 19.</li></ol></div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">In this edition: the Shenzhen trilateral meeting commands global attention, while Wall Street's AI sell-off and Washington's tighter chip-export rules tie technology and geopolitics to the same thread.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 05 · China–Canada</div>
+    <h3>Carney to Meet Xi in Shenzhen Today, Focusing on Food, Energy and Financial Services</h3>
+    <p>Canadian Prime Minister Mark Carney will meet Chinese President Xi Jinping in Shenzhen on Tuesday, seeking to deepen cooperation on food, energy and financial services. It will be their third meeting since Carney became prime minister, and part of his push — the first visit to China by a Canadian prime minister in nearly a decade — to reduce Canada's overwhelming economic reliance on the United States.
+
+Shipments of Canadian crude oil to China have risen about 37% in 2026, according to a Reuters calculation based on LSEG data. Carney landed in Shenzhen on Monday, and the meeting is scheduled for 10:30 a.m. local time, ahead of APEC events.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/china/carney-meet-xi-tuesday-talk-food-energy-financial-services-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 06 · China's Economy</div>
+    <h3>China's Economy Slows in October as Retail Sales Rise Just 0.4%, a Weak Start to the Fourth Quarter</h3>
+    <p>China's industrial production, consumption, house prices, lending and investment all weakened in October, marking a sluggish start to the fourth quarter. Retail sales grew just 0.4% year on year despite the week-long National Day holiday, well short of forecasts. Reuters analysis noted that, although another annual trade surplus above $1 trillion should help Beijing meet its 2026 growth target of 4.5%–5.0%, next year's target will probably be lowered, and pressure for more stimulus is growing.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 07 · Tech Self-Reliance</div>
+    <h3>Ahead of APEC, Xi Tours Zhongshan and Stresses Tech Self-Reliance and Greater Bay Area Integration</h3>
+    <p>Chinese President Xi Jinping stressed the need to achieve technological self-reliance and better integrate Hong Kong, Macau and Guangdong during an inspection tour of Zhongshan in Guangdong province on Monday. He toured a major cross-sea transport route linking Zhongshan with tech hub Shenzhen and visited the former residence of revolutionary pioneer Sun Yat-sen. Xi will chair the APEC summit in Shenzhen this week and hold a trilateral meeting with Trump and Putin.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/asia-pacific/chinas-xi-stresses-tech-self-reliance-innovation-official-tour-ahead-apec-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 08 · Asian Markets</div>
+    <h3>Asian Stocks Plunge: Taiwan Down 6%, Nikkei Falls Below 60,000, Korea Off 3.6%</h3>
+    <p>The AI sell-off spread across Asia on Monday: Taiwan's benchmark index plunged 6%, Japan's Nikkei 225 closed down 2.42% at 59,662.02 — slipping below 60,000 during the session — and South Korea's KOSPI fell 3.59% to 5,100.50. TSMC dropped 5.7%, SK Hynix fell 7.9% and Advantest lost more than 11%.
+
+Japan also reported on the day that its economy contracted at an annualised rate of 0.1% in the third quarter, its first negative growth in four quarters, adding to the gloom. Investors are now holding their breath for Nvidia's earnings and Anthropic's listing.</p>
+    <p class="src">Source: Associated Press · Kabutan (via Binance News) · <a href="https://www.binance.com/en-BH/square/post/11-16-2026-asia-market-close-taiwan-stocks-plunge-6-nikkei-falls-below-60-000-on-ai-chip-selloff-hong-kong-edges-higher-388821421195650" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><div class="pullquote"><div class="big">−6%</div><div class="small">Taiwan's benchmark index fell on Monday</div><div class="note">The Nikkei 225 dropped 2.42% to 59,662.02 and South Korea's KOSPI fell 3.59%, as Asian chip stocks led the global slide.</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">No. 09 · Commodities</div>
+    <h3>IEA Sees a Return to Surplus in the Fourth Quarter; Oil Falls and Gold Hits a One-Year Low</h3>
+    <p>The International Energy Agency said the world oil market will return to a surplus in the fourth quarter, with supply exceeding demand by about 1.7 million barrels a day. Brent crude fell 0.49% to $95.37 a barrel in early Asian trade on Monday, while U.S. WTI slipped 0.26% to $88.33.
+
+After dropping about 4.6% last week, spot gold fell to $3,848 an ounce on Monday, a fresh low in more than a year, as a firmer dollar and expectations of further Fed rate rises continued to weigh on the metal.</p>
+    <p class="src">Source: Reuters · <a href="https://genexusalpha.com/news/2026-11-16-oil-falls-iea-surplus-gold-steadies/" target="_blank" rel="noopener noreferrer">Read original</a> · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 10 · Federal Reserve</div>
+    <h3>Hammack Reiterates the Case for Small Rate Rises: Inflation Pressures Are Rising, but No Rush to a More Aggressive Path</h3>
+    <p>Cleveland Fed President Beth Hammack reiterated on Monday that, while she sees mounting inflation pressures, she is not ready for the U.S. central bank to shift to a more aggressive path of interest rate increases. "I like moving in smaller increments," she said in a Bloomberg TV interview, adding that more predictable policy helps businesses and households plan their finances — and that if the Fed falls behind the curve, it can absolutely move in larger increments.</p>
+    <p class="src">Source: Reuters · Bloomberg · <a href="https://www.reuters.com/business/feds-hammack-reiterates-case-slow-steady-rate-hikes-bloomberg-tv-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 11 · Nvidia</div>
+    <h3>Nvidia Launches Nemotron for Science: Open Science Models Plus a Nearly 50,000-Question Chemistry Dataset</h3>
+    <p>Nvidia introduced Nemotron for Science on Monday at the SC26 conference in Chicago, bringing together its open Nemotron 3.5 Super VL model, a new open chemistry dataset and post-training recipes to help researchers build specialised agents for scientific discovery.
+
+The new LitmusBench v0.2 dataset contains nearly 50,000 questions for training and evaluating language models on chemistry reasoning. The model and dataset are available on Hugging Face, and Argonne National Laboratory is integrating Nemotron into a system for designing and evaluating protein-based therapeutic candidates.</p>
+    <p class="src">Source: Unite.AI (Nvidia announcement) · <a href="https://www.unite.ai/nvidia-launches-nemotron-for-science-and-open-chemistry-dataset/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 12 · AI Listing</div>
+    <h3>Anthropic IPO Enters the Countdown: $70–$78 a Share, Valuing the Company at About $1.3 Trillion</h3>
+    <p>Anthropic has priced its IPO: 825 million Class A shares at $70 to $78 each, raising up to about $64.4 billion, plus a $26 billion private placement that brings the total to as much as $90.4 billion. On a fully diluted basis, the deal values the company at about $1.3 trillion.
+
+The company is reported to price the offering on November 18 and begin trading on Nasdaq under the ticker ANT on November 19, with demand running about six times the shares on offer. It would be one of the largest technology listings ever — and a key test of the AI trade this week.</p>
+    <p class="src">Source: Forbes · The Wall Street Journal · <a href="https://ramaonhealthcare.com/anthropic-ipo-targets-1-3-trillion-valuation-and-a-90-billion-raise/#content" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 13 · AI Models</div>
+    <h3>Alibaba Releases Qwen4 Max, Among the Week's Best-Scoring New Models on the Benchmarks</h3>
+    <p>Alibaba released Qwen4 Max on November 16, scoring 57.9 on the benchmark index and ranking among the best of the week's new model releases. Nvidia's Nemotron 3.5 Bolt was also listed in the same period.
+
+Over the past month, Google's Gemini 4 Hydrogen and Anthropic's Claude Fable 5.2 have also been released, as competition among frontier models enters another intensive round.</p>
+    <p class="src">Source: BenchLeader · <a href="https://www.benchleader.com/releases" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 14 · AI Security</div>
+    <h3>U.S. and Nine Allies Sign Declaration to Jointly Protect AI Technology and Critical Infrastructure</h3>
+    <p>The United States and nine of its allies have signed a declaration to coordinate efforts to secure the technologies and critical infrastructure that AI supply chains depend on, the U.S. State Department said late on Sunday. The signatories are the United States, Australia, India, Israel, Japan, South Korea, Qatar, Singapore, the United Arab Emirates and the United Kingdom.
+
+The San Francisco Declaration says economic security underpins national security and calls for shared protection of sensitive technologies and AI infrastructure. Germany, Sweden, the Netherlands and the European Commission are set to sign next week.</p>
+    <p class="src">Source: Reuters · Financial Times · <a href="https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 15 · Fed and AI</div>
+    <h3>Fed Chair Warsh: AI Will Have a 'Significant Impact', With Three Scenarios in Play</h3>
+    <p>Federal Reserve Chair Kevin Warsh said on Monday that emerging technologies will have a significant impact on the economy, but the scenarios range from rising growth with broadly shared gains to higher unemployment and a potential slowdown if anticipated investment returns prove disappointing.
+
+Speaking at a Fed conference on AI in San Francisco, Warsh referred to artificial intelligence as "super intelligence" and said it could prove distinct from earlier technologies as a force to "supercharge idea generation." He also warned that the risks, including AI use by "bad actors," could be "highly disruptive and economically costly."</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/feds-warsh-says-emerging-technologies-will-have-significant-impact-risks-need-be-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 16 · NBA</div>
+    <h3>Celtics Set a Franchise First-Quarter Record in Rout of Mavericks; 76ers Edge Pacers 131–124</h3>
+    <p>The Boston Celtics built a 33-point lead after the first quarter — a franchise record — and extended their winning streak to six games with a 131–94 victory over the visiting Dallas Mavericks on Sunday. The 76ers held off Indiana 131–124, with Jaylen Brown and Tyrese Maxey combining for 58 points.
+
+Shai Gilgeous-Alexander scored 37 points as Oklahoma City beat Sacramento 125–103 to snap a three-game losing streak, while the Lakers beat the Suns 131–123.</p>
+    <p class="src">Source: Field Level Media (via SRN News) · <a href="https://srnnews.com/nba-roundup-celtics-blast-mavs-behind-franchise-record-first-quarter/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 17 · APEC Schedule</div>
+    <h3>APEC CEO Summit Opens Today in Shenzhen, Bringing Together Business Leaders From BYD, Baidu, Boeing and Google</h3>
+    <p>The APEC CEO Summit will be held in Shenzhen on November 17–18, with business leaders from major Chinese and U.S. companies including BYD, Baidu, Boeing and Google due to attend. The APEC Economic Leaders' Meeting follows on November 18–19.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/asia-pacific/chinese-us-business-leaders-attend-apec-summit-shenzhen-2026-11-16/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>17 stories in this edition, as of 07:30 Beijing time on November 17, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>Tomorrow to watch: Nvidia's earnings after the close and its conference call, Anthropic's IPO pricing, the minutes of the Fed's October meeting, and the latest from the APEC leaders' meeting and Thursday's trilateral talks.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 17, 2026 · Tuesday</span>
+        <span>No. 011 · 17 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 011</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>17 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月17日</strong>　星期二</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 17 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">标普500 · 11月16日收盘</div><div class="val">7,416.59</div><div class="chg down">跌 1.92%</div></div><div class="cell"><div class="label">纳斯达克 · 11月16日收盘</div><div class="val">24,509.76</div><div class="chg down">跌 2.49%，较10月高点回落逾10%</div></div><div class="cell"><div class="label">道琼斯 · 11月16日收盘</div><div class="val">51,608.17</div><div class="chg down">跌 1.41%，跌739点</div></div><div class="cell"><div class="label">日经225 · 11月16日收盘</div><div class="val">59,662.02</div><div class="chg down">跌 2.42%，跌破6万点</div></div><div class="cell"><div class="label">现货黄金 · 11月16日</div><div class="val">3,848美元/盎司</div><div class="chg down">跌约1%，创一年多新低</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · 中美俄三方会晤</div>
+      <h1>中美俄领导人周四深圳首次三方会晤，克里姆林宫称将对全球事务产生重大影响</h1>
+      <p class="deck">三国领导人将在 APEC 峰会期间同桌会谈，乌克兰与核军控预计成为核心议题；特朗普还表示可能在华会见金正恩。</p>
+      <div class="byline"><span>来源 <b>路透社</b></span></div>
+      <div class="lead-cols"><p>克里姆林宫周一表示，俄罗斯总统普京、中国国家主席习近平与美国总统特朗普定于周四在深圳举行三方会晤，地点在习近平的官邸。克里姆林宫助理乌沙科夫称，这将是三国领导人首次以这种形式会面，会晤将对全球事务产生重大影响。中国外交部同日确认，会晤将在 APEC 峰会期间举行，并称这是中、俄、美三国元首首次面对面会谈。
+
+白宫上周表示，特朗普将在会晤中提出削减核武器的问题。特朗普周一还表示，他计划在深圳与习近平和普京讨论乌克兰问题，并可能在华会见朝鲜领导人金正恩。克里姆林宫方面称，如果金正恩也来华参加 APEC，普京有可能与他会面。本届 APEC 领导人会议将于 11 月 18 日至 19 日在深圳举行，主题为“共建亚太共同体，共促繁荣”。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/world/china/kremlin-says-putin-xi-trump-meeting-china-will-have-major-impact-global-affairs-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文 →</a> · <a class="readmore" href="https://www.reuters.com/world/asia-pacific/chinese-us-business-leaders-attend-apec-summit-shenzhen-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">美股</div>
+        <h2 class="mini-head">纳指跌入修正区间：周一重挫 2.49%，AI 抛售进入第三天</h2>
+        <p class="body-text">美股周一连续第三个交易日下跌，纳斯达克综合指数跌 2.49% 至 24,509.76 点，较 10 月 6 日高点回落逾 10%，正式进入修正区间；标普 500 跌 1.92% 至 7,416.59 点，道指跌 1.41% 至 51,608.17 点。
+
+英伟达跌 4.12% 至 156.14 美元，费城半导体指数跌 5.28%。市场正等待英伟达周二盘后财报，以及 Anthropic 本周的上市表现，来检验 AI 交易的成色。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">芯片出口</div>
+        <h2 class="mini-head">美国出台 AI 芯片新规，堵住经第三国数据中心远程获取的漏洞</h2>
+        <p class="body-text">美国商务部周一发布新规，防止先进 AI 芯片经由第三国数据中心的远程计算安排被获取，旨在确保现有技术管制不被绕过。路透社指出，新规可能进一步限制中国获得先进 AI 芯片，正值特朗普启程访亚、将与习近平会面之际。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/legal/litigation/us-issues-rule-protect-advanced-ai-chips-being-accessed-remotely-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>中美俄领导人周四将在深圳首次三方会晤，乌克兰与核军控成焦点。</li><li>纳指跌入修正区间：周一重挫 2.49%，英伟达财报今晚揭晓。</li><li>美国出台 AI 芯片新规，堵住经第三国数据中心远程获取的漏洞。</li><li>卡尼今日在深圳会晤习近平，谈食品、能源与金融服务合作。</li><li>Anthropic 上市进入倒计时：定价 11 月 18 日，19 日挂牌纳斯达克。</li></ol></div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版看点：深圳三方会晤牵动全球目光，而华尔街的 AI 抛售与美国收紧芯片出口，正把科技与地缘绑在同一条线上。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 05 条 · 中加关系</div>
+    <h3>卡尼今日深圳会晤习近平，聚焦食品、能源与金融服务</h3>
+    <p>加拿大总理卡尼将于周二在深圳会见中国国家主席习近平，寻求在食品、能源与金融服务领域深化合作。这是卡尼今年 1 月访华以来第三次与习近平会面，也是近十年来首位访华的加拿大总理推动对美经济依赖多元化的重要一步。
+
+路透社根据 LSEG 数据测算，2026 年加拿大对华原油出口量增长约 37%。卡尼周一已抵达深圳，会晤定于当地时间上午 10:30 举行，随后他将参加 APEC 相关活动。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/china/carney-meet-xi-tuesday-talk-food-energy-financial-services-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 06 条 · 中国经济</div>
+    <h3>中国 10 月经济活动放缓：零售仅增 0.4%，四季度开局乏力</h3>
+    <p>中国 10 月工业生产、消费、房价、信贷与投资全面走弱，四季度开局低迷。零售额同比仅增 0.4%，尽管有国庆长假支撑，仍大幅不及预期。路透社分析指出，尽管全年贸易顺差有望再度超过 1 万亿美元、助力实现 4.5%—5.0% 的增长目标，但明年目标可能下调，呼吁出台更多刺激的压力正在加大。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 07 条 · 科技自立</div>
+    <h3>APEC 前夕习近平赴中山考察，强调科技自立自强与大湾区融合</h3>
+    <p>习近平周一在广东省中山市考察时强调，要实现科技自立自强，更好推进香港、澳门与广东融合发展。他参观了连接中山与深圳的跨海通道，并前往孙中山故居。习近平本周将在深圳主持 APEC 峰会，并与特朗普、普京举行三方会晤。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/asia-pacific/chinas-xi-stresses-tech-self-reliance-innovation-official-tour-ahead-apec-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 08 条 · 亚太股市</div>
+    <h3>亚洲股市重挫：台湾跌 6%，日经失守 6 万点，韩国跌 3.6%</h3>
+    <p>AI 抛售蔓延至亚太：周一台湾加权指数大跌 6%，日经 225 收跌 2.42% 至 59,662.02 点、盘中一度跌破 6 万点，韩国 KOSPI 跌 3.59% 至 5,100.50 点。台积电跌 5.7%，SK 海力士跌 7.9%，Advantest 跌逾 11%。
+
+日本同日公布的三季度 GDP 年化萎缩 0.1%，为四个季度来首次负增长，进一步打压市场情绪。投资者正屏息等待英伟达财报与 Anthropic 上市。</p>
+    <p class="src">来源：美联社 · Kabutan（经 Binance News 综合） · <a href="https://www.binance.com/en-BH/square/post/11-16-2026-asia-market-close-taiwan-stocks-plunge-6-nikkei-falls-below-60-000-on-ai-chip-selloff-hong-kong-edges-higher-388821421195650" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><div class="pullquote"><div class="big">−6%</div><div class="small">台湾加权指数周一跌幅</div><div class="note">日经225跌 2.42% 至 59,662.02 点，韩国 KOSPI 跌 3.59%，亚洲芯片股领跌全球。</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">第 09 条 · 大宗商品</div>
+    <h3>IEA 称四季度重回供应过剩，油价下跌；金价跌至一年多新低</h3>
+    <p>国际能源署表示，世界石油市场今年四季度将重回供应过剩，供应量将比需求高出约 170 万桶/日。布伦特原油周一早盘跌 0.49% 至 95.37 美元/桶，WTI 跌 0.26% 至 88.33 美元/桶。
+
+金价上周大跌约 4.6% 后，周一现货金一度跌至 3,848 美元/盎司，创一年多新低；美元走强与美联储加息预期继续压制金价。</p>
+    <p class="src">来源：路透社 · <a href="https://genexusalpha.com/news/2026-11-16-oil-falls-iea-surplus-gold-steadies/" target="_blank" rel="noopener noreferrer">阅读原文</a> · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 10 条 · 美联储</div>
+    <h3>哈马克重申小步加息：通胀压力上升，但不急于转向更激进路径</h3>
+    <p>克利夫兰联储主席哈马克周一在接受彭博电视采访时表示，尽管通胀压力上升，她尚未准备好让美联储转向更大幅度的加息路径。“我喜欢小步前进，”她说，更可预测的政策有助于企业和家庭规划财务；若落后于形势，美联储完全可以加大力度。</p>
+    <p class="src">来源：路透社 · 彭博社 · <a href="https://www.reuters.com/business/feds-hammack-reiterates-case-slow-steady-rate-hikes-bloomberg-tv-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 11 条 · 英伟达</div>
+    <h3>英伟达推出 Nemotron for Science：开放科学模型加近 5 万道化学题库</h3>
+    <p>英伟达周一在芝加哥 SC26 大会上推出 Nemotron for Science，将开放模型 Nemotron 3.5 Super VL、新的开放化学数据集与后训练配方结合，帮助研究人员搭建面向科学发现的专业智能体。
+
+新数据集 LitmusBench v0.2 包含近 5 万道化学推理题，用于训练与评估语言模型；模型与数据集已上架 Hugging Face，阿贡国家实验室正将其用于蛋白质药物候选分子的设计与评估。</p>
+    <p class="src">来源：Unite.AI（英伟达发布） · <a href="https://www.unite.ai/nvidia-launches-nemotron-for-science-and-open-chemistry-dataset/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 12 条 · AI 上市</div>
+    <h3>Anthropic IPO 进入倒计时：每股 70—78 美元，估值约 1.3 万亿美元</h3>
+    <p>Anthropic 已为其 IPO 定价：发行 8.25 亿股 A 类股，每股 70 至 78 美元，最高募资约 644 亿美元；另有 260 亿美元私募配售，合计最高约 904 亿美元。按全面摊薄口径，估值约 1.3 万亿美元。
+
+据报道，公司计划 11 月 18 日定价、19 日在纳斯达克以代码 ANT 挂牌，认购需求约为发行量的六倍。这将是史上规模最大的科技上市之一，也将成为本周 AI 交易的关键考验。</p>
+    <p class="src">来源：福布斯 · 华尔街日报 · <a href="https://ramaonhealthcare.com/anthropic-ipo-targets-1-3-trillion-valuation-and-a-90-billion-raise/#content" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 13 条 · 大模型</div>
+    <h3>阿里发布 Qwen4 Max：本周新模型中评分居前，登上基准榜单</h3>
+    <p>阿里巴巴 11 月 16 日发布 Qwen4 Max，基准综合评分 57.9，在当周新发布的模型中位居前列。同期上榜的还有英伟达 Nemotron 3.5 Bolt 等模型。
+
+此前一个月内，谷歌 Gemini 4 Hydrogen 与 Anthropic Claude Fable 5.2 等新模型相继发布，头部大模型竞争进入新一轮密集期。</p>
+    <p class="src">来源：BenchLeader · <a href="https://www.benchleader.com/releases" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 14 条 · AI 安全</div>
+    <h3>美国联合九个盟友签署宣言，共同保护 AI 技术与关键基础设施</h3>
+    <p>美国国务院周日表示，美国与澳大利亚、印度、以色列、日本、韩国、卡塔尔、新加坡、阿联酋和英国签署《旧金山宣言》，协调保护 AI 供应链所依赖的技术与关键基础设施。
+
+宣言称经济安全是国家安全的基础，并呼吁共同保护敏感技术与 AI 基础设施。德国、瑞典、荷兰与欧盟委员会预计下周签署该协议。</p>
+    <p class="src">来源：路透社 · 金融时报 · <a href="https://www.reuters.com/world/china/us-allies-team-up-protect-ai-tech-infrastructure-amid-china-rivalry-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 15 条 · 美联储与 AI</div>
+    <h3>美联储主席沃什：AI 将带来“重大影响”，三种情景并存</h3>
+    <p>美联储主席沃什周一在旧金山的美联储 AI 会议上表示，新兴技术将对经济产生重大影响，但前景从生产率提升、收益广泛共享，到失业上升、投资回报不及预期导致放缓，三种情景并存。
+
+沃什将 AI 称为“超级智能”，称其可能“超级加速创意产生”。他同时警告，AI 被“不良行为者”利用的风险也可能“极具破坏性且代价高昂”。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/feds-warsh-says-emerging-technologies-will-have-significant-impact-risks-need-be-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 16 条 · NBA</div>
+    <h3>凯尔特人首节创队史纪录大胜独行侠，76 人 131—124 力克步行者</h3>
+    <p>凯尔特人周日主场 131—94 大胜独行侠，首节便建立 33 分领先并将连胜扩大到六场。76 人 131—124 战胜步行者，布朗与马克西合砍 58 分。
+
+雷霆方面，亚历山大砍下 37 分，125—103 战胜国王，终结三连败；湖人 131—123 战胜太阳。</p>
+    <p class="src">来源：Field Level Media（经 SRN News） · <a href="https://srnnews.com/nba-roundup-celtics-blast-mavs-behind-franchise-record-first-quarter/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 17 条 · APEC 日程</div>
+    <h3>APEC CEO 峰会今日开幕：比亚迪、百度、波音、谷歌等中美企业领袖齐聚深圳</h3>
+    <p>APEC CEO 峰会将于 11 月 17 日至 18 日在深圳举行，比亚迪、百度、波音、谷歌等中美企业领袖将出席。APEC 领导人会议随后于 11 月 18 日至 19 日举行。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/asia-pacific/chinese-us-business-leaders-attend-apec-summit-shenzhen-2026-11-16/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 17 条，截至北京时间2026年11月17日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>明天重点跟踪：英伟达盘后财报与电话会、Anthropic IPO 定价、美联储 10 月会议纪要，以及 APEC 领导人会议与周四三方会晤的最新消息。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月17日 · 星期二</span>
+        <span>第 011 期 · 共 17 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
