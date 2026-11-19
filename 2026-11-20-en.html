@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily News · November 20, 2026 · No. 014</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en" checked>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh">
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 014</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>17 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 20, 2026</strong> &nbsp;·&nbsp; Friday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>17 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">S&amp;P 500 · Thursday</div><div class="val">Down about 2%</div><div class="chg down">Fresh seven-month low</div></div><div class="cell"><div class="label">Nasdaq · Thursday</div><div class="val">Down 2.3%</div><div class="chg down">Fresh seven-month low</div></div><div class="cell"><div class="label">Dow Jones · Thursday</div><div class="val">Down 2.2%</div><div class="chg down">Losing streak extended</div></div><div class="cell"><div class="label">Brent crude · Thursday close</div><div class="val">$92.27 a barrel</div><div class="chg up">Up 0.35%</div></div><div class="cell"><div class="label">Spot gold · Thursday close</div><div class="val">$3,674.68 an ounce</div><div class="chg down">Down 1.36%, near a 14-month low</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Front Page · Trilateral Summit</div>
+      <h1>Trump, Xi and Putin Meet in Shenzhen and Issue a Five-Paragraph “Peace Declaration”</h1>
+      <p class="deck">The leaders of the United States, China and Russia held their first-ever trilateral meeting, discussing Ukraine, nuclear arms control and artificial intelligence. The declaration was more symbolic than substantive, while European allies met urgently in Berlin to coordinate a response.</p>
+      <div class="byline"><span>Source <b>Reuters</b></span></div>
+      <div class="lead-cols"><p>The three leaders met for less than two hours on Thursday at the Kylin Villa compound in Shenzhen before issuing a five-paragraph “peace declaration.” Trump said before the meeting that the gathering itself was already a victory; he also discussed trade and critical minerals with Xi and proposed nuclear arms reductions by the United States, Russia and China, without offering details. Putin rejected suggestions that the meeting was meant to repeat the 1945 Yalta Conference or carve the world into spheres of influence.
+
+Substantive results were limited: Ukraine was raised, but no concrete breakthrough emerged. Xi made no mention of Ukraine in his opening remarks, while Trump said he hoped to work with China and Russia to end the fighting. In Europe, there were concerns that decisions affecting European security could be taken without European input. Ukraine’s European allies met in Berlin the same day as the “Coalition of the Willing,” reaffirming legally binding security guarantees to take effect after a ceasefire.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/default/day-3-trumps-asia-tour-big-summits-bigger-spectacle-unfinished-deals-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original →</a> · <a class="readmore" href="https://www.reuters.com/world/china/putin-defends-his-yalta-3-way-summit-draws-parallels-post-war-carve-up-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">World Court</div>
+        <h2 class="mini-head">World Court Rules Myanmar Committed Genocide Against the Rohingya</h2>
+        <p class="body-text">The United Nations’ International Court of Justice ruled on Thursday that mass killings and widespread sexual violence by Myanmar’s security forces against Rohingya Muslims in 2017 amounted to state-sponsored genocide. It was only the fourth time since the Nazi Holocaust that an international court has found the legal threshold for genocide to have been met. The ruling is final and cannot be appealed, although the court has limited means of enforcement; the case was brought by Gambia in 2019, after more than 730,000 Rohingya fled to Bangladesh.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/asia-pacific/top-un-court-finds-myanmar-committed-state-sponsored-genocide-against-muslim-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>The leaders of the United States, China and Russia held their first trilateral meeting in Shenzhen and issued a “peace declaration,” but substantive breakthroughs were limited.</li><li>The World Court ruled that Myanmar committed genocide against the Rohingya — only the fourth such ruling since the Second World War.</li><li>Anthropic listed in the largest IPO in history, raising $81 billion, and closed its first day at $97.</li><li>U.S. stocks fell about 2% on Thursday, with the S&amp;P 500 and Nasdaq hitting seven-month lows as confidence in the AI trade faltered.</li><li>Nvidia’s quarterly revenue more than doubled to $115.8 billion, while OpenAI released GPT-6.2 the same week.</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">Gulf Conflict</div>
+        <h4>When Will the Gulf Conflict End? Washington and Riyadh Disagree</h4>
+        <p class="body-text">Iran said it struck U.S. drone and missile sites in Kuwait overnight, after the United States hit Qeshm Island in the Strait of Hormuz; Bahrain said it had intercepted Iranian attacks for a third time in a week. U.S. Vice President JD Vance said the conflict would not become another “forever war,” but gave no end date, while Saudi officials expect the war with the Houthis in Yemen could stretch into next year.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/middle-east/gulf-conflict-end-date-depends-who-you-ask-2026-11-18/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">In this section: the Shenzhen trilateral summit leads the front page, the World Court’s genocide ruling on Myanmar carries historic weight, and the Gulf conflict remains without a clear end in sight.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 05 · APEC Summit</div>
+    <h3>Xi Sets Out Four Pillars for an Asia-Pacific Community at Shenzhen APEC as China Pledges $20 Million</h3>
+    <p>Xi Jinping chaired the 33rd APEC Economic Leaders’ Meeting in Shenzhen on Thursday and delivered remarks titled “Building an Asia-Pacific Community and Writing a New Chapter of the Asia-Pacific Miracle,” setting out pillars for an Asia-Pacific community and calling for stronger regional cooperation, the removal of trade barriers and deeper technological partnerships. China will provide $20 million to support APEC’s practical cooperation and establish an Asia-Pacific community research centre in Shenzhen.</p>
+    <p class="src">Source: Xinhua (via the State Council Information Office) · <a href="http://english.scio.gov.cn/topnews/2026-11/19/content_118781216.html" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 06 · China Rates</div>
+    <h3>China Expected to Hold Benchmark Lending Rates for an 18th Month, Though a Few See a Cut</h3>
+    <p>A Reuters survey showed China is set to leave its benchmark lending rates unchanged in November for an 18th consecutive month: 23 of 28 respondents expected the one-year and five-year loan prime rates to stay at 3.00% and 3.50% respectively at Friday’s review, while five expected a cut. Citi called a November cut “implausible” and expects the People’s Bank of China to resume reductions with two 10-basis-point cuts in 2027 after holding steady this year.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/china/china-expected-hold-benchmark-lending-rates-november-some-see-cut-coming-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 07 · Chip Controls</div>
+    <h3>U.S. House Panel Discloses Nearly 900,000 AI Chips Approved for China in Six Months</h3>
+    <p>The U.S. House Foreign Affairs Committee said on Thursday that the Trump administration approved shipments of nearly 900,000 advanced AI chips made by Nvidia and AMD for Chinese companies from December 2025 through May 2026, including 75,000 for Alibaba, 150,000 for Tencent, 43,000 for Baidu and 4,000 for BYD. The committee said companies had requested sales of 3.4 million AI chips, with more than 879,000 approved.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/license-information-ai-chips-sent-china-released-by-us-house-committee-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 08 · U.S. Stocks</div>
+    <h3>U.S. Stocks Slump About 2% as S&amp;P 500 and Nasdaq Hit Seven-Month Lows</h3>
+    <p>U.S. stocks slumped about 2% on Thursday, with the S&amp;P 500 and Nasdaq hitting fresh seven-month lows and the Dow falling 2.2%, in the longest losing streak since April 2024. Investors shrugged off the euphoria of Anthropic’s record-breaking market debut and focused instead on growing concerns over the longer-term outlook for the AI trade; European shares edged higher, led by technology stocks.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><div class="pullquote"><div class="big">−2%</div><div class="small">The S&amp;P 500 and Nasdaq fell together on Thursday</div><div class="note">Both indexes hit seven-month lows; the S&amp;P 500 suffered its longest losing streak since April 2024.</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">No. 09 · Copper</div>
+    <h3>Funds Dump Copper to a Seven-Month Low — While Shanghai Runs Out of Metal</h3>
+    <p>London Metal Exchange three-month copper slumped 6% to a seven-month low of $12,379.50 a metric ton on Wednesday, even as the Shanghai Futures Exchange November contract was gripped by an unprecedented squeeze: with deliverable stocks insufficient to cover delivery commitments, it spiked more than 9% on Monday to 118,060 yuan a ton. Total Shanghai deliverable inventory has collapsed from a March peak of 433,458 tons to 27,642 tons.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/commentary/reuters-open-interest/funds-dump-copper-shanghai-has-run-out-metal-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 10 · Retail Earnings</div>
+    <h3>Walmart Raises Full-Year Outlook, Betting on Low-Priced Groceries and Delivery Growth</h3>
+    <p>Walmart slightly raised its annual sales and profit forecasts on Thursday, expecting fiscal 2027 net sales to grow 4.9% to 5.2% and adjusted earnings of $2.84 to $2.89 a share. Third-quarter total revenue rose a better-than-expected 5.2% to $188.84 billion, with U.S. e-commerce sales up 23%, although the company warned of rising fuel costs.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/walmart-raises-forecasts-ahead-holidays-warns-rising-fuel-costs-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 11 · AI Listing</div>
+    <h3>Anthropic Makes History’s Biggest IPO, Raising $81 Billion and Closing Day One at $97</h3>
+    <p>Anthropic, the maker of Claude, priced its IPO at $83 a share, raising $81 billion at a valuation of about $1.5 trillion — surpassing SpaceX as the largest IPO on record — with total proceeds potentially rising to $93.5 billion if overallotment options are exercised. Shares debuted at $111.50, briefly topped $115 in trading and closed at $97. Annualised revenue was running at just over $80 billion, but computing commitments already stand at nearly $900 billion, leaving the valuation open to question.</p>
+    <p class="src">Source: Reuters · Bloomberg · <a href="https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 12 · Nvidia Earnings</div>
+    <h3>Nvidia’s Quarterly Revenue More Than Doubles to $115.8 Billion, With Data Centre Sales at $107.6 Billion</h3>
+    <p>Nvidia reported revenue of $115.8 billion for the quarter ended October 25, up 103% from a year earlier and above the $109.1 billion market consensus; data centre revenue reached $107.6 billion, up 110%, and net income was $65.3 billion. The company guided to about $130 billion in revenue next quarter and raised its fiscal 2028 revenue growth outlook to 75%. It was the first earnings report since Jensen Huang’s resignation, presented by interim chief executive and chief financial officer Colette Kress.</p>
+    <p class="src">Source: Nvidia (official) · Reuters · <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 13 · Frontier Models</div>
+    <h3>OpenAI Releases GPT-6.2 Astra and Sol, Cutting Its Flagship Model’s Price by 20%</h3>
+    <p>OpenAI released GPT-6.2 Astra and GPT-6.2 Sol on November 17 for Plus, Pro, Enterprise and Education users in ChatGPT Work, Codex and the API. Astra targets the hardest reasoning and coding work, with standard API prices 20% lower than GPT-6 Astra; Sol came within half a point of Astra on a coding benchmark at about a fifth of the cost.</p>
+    <p class="src">Source: TechCity Explorer (summarising OpenAI’s release) · <a href="https://techcityexplorer.com/2026/11/18/nvidia-earnings-openai-gpt-6-2-apple-health-ai/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 14 · AI Regulation</div>
+    <h3>Musk’s xAI Asks Appeals Court to Block California’s AI Data-Disclosure Law</h3>
+    <p>A three-judge panel of the U.S. 9th Circuit Court of Appeals heard on Wednesday a bid by Elon Musk-owned xAI to block a California law requiring AI companies to disclose information about the data used to train their models. Signed in September 2024 and in effect since January 1, the law requires generative AI companies to publicly post summaries of their training datasets. xAI argues it violates free speech and would force it to reveal trade secrets; a district judge rejected its request for a temporary block in March.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/legal/government/musks-xai-urges-us-appeals-court-block-california-ai-disclosure-law-2026-11-18/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 15 · Game Launch</div>
+    <h3>GTA VI Launches Worldwide, With First-Day Sales Estimated at Nearly $2 Billion</h3>
+    <p>After 13 years, Grand Theft Auto VI launched worldwide on Thursday, with production costs estimated at $1 billion or more. Sensor Tower estimated 19.1 million units sold as of Thursday morning, translating to about $1.84 billion in revenue; Take-Two shares fell about 1% on Thursday after closing 6% higher the previous session. Analysts expect a PC launch and online mode in 2027.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/lifestyle/take-two-set-shatter-sales-records-gta-vi-launches-massive-fanfare-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 16 · NBA</div>
+    <h3>Antetokounmpo Scores 27 Against His Old Team as the Heat Beat the Bucks 137–130</h3>
+    <p>Giannis Antetokounmpo, playing against his former team for the first time, scored 27 points with 13 rebounds and nine assists as the host Miami Heat defeated the Milwaukee Bucks 137–130 for a sixth straight win. Milwaukee lost its 11th in a row, falling to 1–14 for the worst 15-game start in franchise history. The Utah Jazz also beat the Lakers 109–97 the same night, ending Los Angeles’ bid for a 10th straight win.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/sports/nba-roundup-giannis-antetokounmpo-paces-heat-first-game-vs-bucks--flm-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 17 · Football</div>
+    <h3>Bayern Coach Kompany Returns to the Bench on Friday After Recovering From Illness</h3>
+    <p>Bayern Munich coach Vincent Kompany said on Thursday he had undergone scores of tests and was healthy, and was eager to return to football normality. After almost a month out following a collapse, he returns to the bench on Friday when Bayern host Cologne in the league; under assistant coach Aaron Danks, Bayern won four and drew one of five matches and top the Bundesliga.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/sports/soccer/healthy-again-kompany-wants-shift-focus-back-football-normality-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>17 stories in this edition, as of 07:30 Beijing time on November 20, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>Worth watching tomorrow: Japan’s October inflation, UK October retail sales, ECB President Christine Lagarde’s remarks, and the final University of Michigan consumer sentiment reading for November in the United States; China’s loan prime rates are also due on Friday.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 20, 2026 · Friday</span>
+        <span>No. 014 · 17 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 014</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>17 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月20日</strong>　星期五</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 17 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">标普500 · 周四</div><div class="val">下跌约2%</div><div class="chg down">创七个月新低</div></div><div class="cell"><div class="label">纳斯达克 · 周四</div><div class="val">下跌2.3%</div><div class="chg down">创七个月新低</div></div><div class="cell"><div class="label">道琼斯 · 周四</div><div class="val">下跌2.2%</div><div class="chg down">六连跌行情延续</div></div><div class="cell"><div class="label">布伦特原油 · 周四收盘</div><div class="val">92.27美元/桶</div><div class="chg up">上涨0.35%</div></div><div class="cell"><div class="label">现货黄金 · 周四收盘</div><div class="val">3,674.68美元/盎司</div><div class="chg down">下跌1.36%，处14个月低位附近</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · 三方峰会</div>
+      <h1>特朗普、习近平、普京深圳会晤，发布五段“和平宣言”</h1>
+      <p class="deck">美中俄三国领导人首次举行三方会晤，讨论乌克兰、核军控与人工智能。宣言象征意义大于实质内容，欧洲盟友则在柏林紧急商议回应。</p>
+      <div class="byline"><span>来源 <b>路透社</b></span></div>
+      <div class="lead-cols"><p>三位领导人周四在深圳麒麟山庄举行了不到两小时的会晤，随后发布一份五段文字的“和平宣言”。特朗普在会前表示，仅凭这次会晤本身就是一场胜利；他还与习近平讨论了贸易与关键矿产，并提议美中俄三国削减核武器，但未给出具体方案。普京则否认这次会晤意在重演1945年雅尔塔会议、划分势力范围。
+
+会晤的实质成果有限：乌克兰问题被提上议程，但未见具体突破；习近平在开场白中未提乌克兰，而特朗普则表示希望与中俄共同推动停火。欧洲方面担忧，事关欧洲安全的决定可能在没有欧洲参与的情况下作出，乌克兰的欧洲盟友当天在柏林举行“自愿联盟”会议，重申在停火后提供具有法律约束力的安全保障。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/default/day-3-trumps-asia-tour-big-summits-bigger-spectacle-unfinished-deals-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文 →</a> · <a class="readmore" href="https://www.reuters.com/world/china/putin-defends-his-yalta-3-way-summit-draws-parallels-post-war-carve-up-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">国际法院</div>
+        <h2 class="mini-head">国际法院裁定缅甸对罗兴亚人实施种族灭绝</h2>
+        <p class="body-text">联合国国际法院周四裁定，缅甸安全部队2017年对罗兴亚穆斯林的大规模杀戮与性暴力构成国家支持的种族灭绝。这是自纳粹大屠杀以来，国际法院第四次认定达到种族灭绝的法律门槛。裁决为终审，不得上诉，但法院执行手段有限；该案由冈比亚于2019年提起，逾73万罗兴亚人当年逃往孟加拉国。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/asia-pacific/top-un-court-finds-myanmar-committed-state-sponsored-genocide-against-muslim-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>美中俄领导人深圳首次三方会晤，发布“和平宣言”，但实质突破有限。</li><li>国际法院裁定缅甸对罗兴亚人实施种族灭绝，为二战后第四次此类裁决。</li><li>Anthropic 以810亿美元创史上最大IPO上市，首日收于97美元。</li><li>美股周四大跌约2%，标普与纳指创七个月新低，AI交易信心受挫。</li><li>英伟达季度营收翻倍至1158亿美元，OpenAI 同日发布 GPT-6.2。</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">海湾局势</div>
+        <h4>海湾冲突何时结束？华盛顿、利雅得各执一词</h4>
+        <p class="body-text">伊朗称其夜间袭击了科威特境内的美军无人机与导弹设施，此前美军打击了霍尔木兹海峡的格什姆岛；巴林称一周内第三次拦截伊朗袭击。美国副总统万斯表示不会让冲突变成另一场“永久战争”，但未给出结束日期；沙特官员预计与胡塞武装的冲突可能延续至明年。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/middle-east/gulf-conflict-end-date-depends-who-you-ask-2026-11-18/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版看点：深圳三方峰会抢占头条，国际法院对缅甸的种族灭绝裁决同样具有历史分量，海湾冲突的走向则仍无定论。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 05 条 · APEC峰会</div>
+    <h3>习近平在深圳APEC峰会提出亚太共同体四支柱，中国出资2000万美元支持合作</h3>
+    <p>习近平周四在深圳主持第33届APEC领导人非正式会议并发表题为《共建亚太共同体，续写亚太奇迹新篇章》的重要讲话，提出共建亚太共同体的支柱，呼吁加强区域合作、消除贸易壁垒、深化技术伙伴关系。中国将提供2000万美元支持APEC务实合作，并在深圳设立亚太共同体研究中心。</p>
+    <p class="src">来源：新华社（经国务院新闻办英文网） · <a href="http://english.scio.gov.cn/topnews/2026-11/19/content_118781216.html" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 06 条 · 中国利率</div>
+    <h3>中国料连续第18个月维持贷款市场报价利率不变，少数机构预期降息</h3>
+    <p>路透调查显示，中国周五料将连续第18个月维持贷款市场报价利率不变：28位受访者中23位预计一年期与五年期LPR分别维持在3.00%与3.50%，其余5位预计下调。花旗认为11月降息“不太可能”，预计人民银行在今年按兵不动后，于2027年恢复两次各10个基点的降息。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/china/china-expected-hold-benchmark-lending-rates-november-some-see-cut-coming-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 07 条 · 芯片管制</div>
+    <h3>美国众议院委员会披露：半年内批准近90万枚AI芯片输华</h3>
+    <p>美国众议院外交事务委员会周四表示，特朗普政府在2025年12月至2026年5月间，批准向中国企业出口近90万枚英伟达与AMD的先进AI芯片，其中包括向阿里巴巴7.5万枚、腾讯15万枚、百度4.3万枚、比亚迪4000枚。委员会称，企业共申请出口340万枚芯片，获批逾87.9万枚。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/license-information-ai-chips-sent-china-released-by-us-house-committee-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 08 条 · 美股</div>
+    <h3>美股周四大跌约2%，标普与纳指创七个月新低</h3>
+    <p>美股周四下跌约2%，标普500与纳斯达克创七个月新低，道指跌2.2%，为2024年4月以来最长连跌。投资者对Anthropic创纪录上市的热情迅速消退，转而担忧AI交易的长期前景；欧洲股市则小幅反弹，科技股领涨。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/commentary/reuters-open-interest/global-markets-trading-day-graphic-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><div class="pullquote"><div class="big">−2%</div><div class="small">标普500与纳斯达克周四齐跌</div><div class="note">两大指数创七个月新低；标普500遭遇2024年4月以来最长连跌。</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">第 09 条 · 铜市</div>
+    <h3>基金抛售铜价跌至七个月低位，上海却“无铜可交”</h3>
+    <p>伦敦金属交易所三个月期铜周三暴跌6%，至每吨12379.50美元的七个月低位；与此同时，上海期货交易所11月合约周一因可交割库存不足而出现史无前例的逼仓，合约一度飙升逾9%至每吨118060元，可交割库存已从3月峰值的433458吨降至27642吨。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/commentary/reuters-open-interest/funds-dump-copper-shanghai-has-run-out-metal-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 10 条 · 零售财报</div>
+    <h3>沃尔玛上调全年指引，押注假日季低价食品与配送增长</h3>
+    <p>沃尔玛周四小幅上调全年销售与利润预期，预计2027财年净销售额增长4.9%至5.2%，调整后每股收益2.84至2.89美元。第三季度总营收同比增长5.2%至1888.4亿美元，美国电商销售增长23%，但公司同时警告燃油成本上升。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/walmart-raises-forecasts-ahead-holidays-warns-rising-fuel-costs-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 11 条 · AI上市</div>
+    <h3>Anthropic 创史上最大IPO：募资810亿美元，首日收于97美元</h3>
+    <p>Claude背后的Anthropic以每股83美元定价，募资810亿美元，估值约1.5万亿美元，超越SpaceX成为史上最大IPO；若行使超额配售权，总募资可达935亿美元。首日开盘价111.50美元，盘中一度触及115美元，收于97美元。公司年化营收略超800亿美元，但算力承诺已近9000亿美元，估值能否兑现仍受质疑。</p>
+    <p class="src">来源：路透社 · 彭博社 · <a href="https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 12 条 · 英伟达财报</div>
+    <h3>英伟达季度营收翻倍至1158亿美元，数据中心收入1076亿美元</h3>
+    <p>英伟达截至10月25日的财季营收1158亿美元，同比增长103%，高于市场预期的1091亿美元；数据中心收入1076亿美元，同比增长110%，净利润653亿美元。公司预计下季营收约1300亿美元，并将2028财年收入增长预期上调至75%。这是黄仁勋辞任后首份财报，由临时CEO、首席财务官科莱特·克雷斯主持。</p>
+    <p class="src">来源：英伟达官方 · 路透社 · <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 13 条 · 大模型</div>
+    <h3>OpenAI 发布 GPT-6.2 Astra 与 Sol，旗舰模型降价两成</h3>
+    <p>OpenAI 11月17日发布 GPT-6.2 Astra 与 GPT-6.2 Sol，面向 ChatGPT Work、Codex 与 API 的 Plus、Pro、企业与教育用户。Astra 面向最难的推理与编程任务，标准 API 价格较 GPT-6 Astra 低20%；Sol 在编码基准上接近 Astra，成本约为其五分之一。</p>
+    <p class="src">来源：TechCity Explorer（综合 OpenAI 发布） · <a href="https://techcityexplorer.com/2026/11/18/nvidia-earnings-openai-gpt-6-2-apple-health-ai/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 14 条 · AI监管</div>
+    <h3>马斯克旗下 xAI 要求上诉法院叫停加州 AI 数据披露法</h3>
+    <p>美国第九巡回上诉法院周三审理 xAI 要求叫停加州 AI 训练数据披露法的请求。该法于2024年9月签署、今年1月1日生效，要求生成式 AI 公司公开训练数据集摘要。xAI 称该法侵犯言论自由并迫使其泄露商业机密；地方法院今年3月已驳回其临时禁令请求。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/legal/government/musks-xai-urges-us-appeals-court-block-california-ai-disclosure-law-2026-11-18/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 15 条 · 游戏首发</div>
+    <h3>《GTA VI》全球发售，首日销售额预计近20亿美元</h3>
+    <p>时隔13年，《侠盗猎车手 VI》周四全球发售，制作成本估计超过10亿美元。Sensor Tower 估计，截至周四上午已售出1910万份，对应约18.4亿美元收入；Take-Two 股价周四下跌约1%，此前一日上涨6%。分析师预计 PC 版与在线模式或于2027年推出。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/lifestyle/take-two-set-shatter-sales-records-gta-vi-launches-massive-fanfare-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 16 条 · NBA</div>
+    <h3>字母哥战旧主砍27分，热火137比130击败雄鹿</h3>
+    <p>扬尼斯·安特托昆博首次对阵老东家，砍下27分、13个篮板和9次助攻，率领迈阿密热火主场137比130击败密尔沃基雄鹿，取得六连胜。雄鹿遭遇11连败，1胜14负创队史最差15场开局。爵士同日109比97击败湖人，终结了湖人冲击十连胜的希望。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/sports/nba-roundup-giannis-antetokounmpo-paces-heat-first-game-vs-bucks--flm-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 17 条 · 足球</div>
+    <h3>拜仁主帅孔帕尼病愈归来，周五重返教练席</h3>
+    <p>拜仁慕尼黑主帅文森特·孔帕尼周四表示，经过多项检查后身体已无大碍，渴望回归“足球常态”。他因病缺席近一个月，将在周五拜仁主场对阵科隆的联赛中重返教练席；助理教练带队期间拜仁四胜一平，德甲暂居榜首。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/sports/soccer/healthy-again-kompany-wants-shift-focus-back-football-normality-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 17 条，截至北京时间2026年11月20日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>明天值得跟踪：日本10月通胀、英国10月零售销售、欧洲央行行长拉加德讲话，以及美国11月密歇根大学消费者信心终值；中国贷款市场报价利率（LPR）也将于周五公布。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月20日 · 星期五</span>
+        <span>第 014 期 · 共 17 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
