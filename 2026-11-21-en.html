@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily News · November 21, 2026 · No. 015</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en" checked>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh">
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 015</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>16 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 21, 2026</strong> &nbsp;·&nbsp; Saturday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>16 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">S&amp;P 500 · Close, Nov. 20</div><div class="val">6,910.39</div><div class="chg down">Down 3.70%</div></div><div class="cell"><div class="label">Nasdaq Composite · Close, Nov. 20</div><div class="val">22,617.73</div><div class="chg down">Down 5.28%</div></div><div class="cell"><div class="label">Dow Jones Industrial Average · Close, Nov. 20</div><div class="val">48,147.33</div><div class="chg down">Down 1.93%</div></div><div class="cell"><div class="label">Gold · Close, Nov. 20</div><div class="val">$3,517.24 per ounce</div><div class="chg down">Down 3.02%</div></div><div class="cell"><div class="label">Nikkei 225 · Close, Nov. 20</div><div class="val">56,436.65</div><div class="chg down">Down 5.06%</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Front Page · AI Selloff</div>
+      <h1>U.S. Stocks Plunge in AI Selloff as Nasdaq Drops 5.3% and Turns Negative for the Year</h1>
+      <p class="deck">Artificial intelligence stocks tumbled on Friday, with the S&amp;P 500 down 3.7% and the Nasdaq Composite posting its worst week in more than 18 months.</p>
+      <div class="byline"><span>Source <b>Reuters</b></span></div>
+      <div class="lead-cols"><p>The selloff in artificial intelligence stocks deepened on Friday, with the Nasdaq Composite plunging 5.3% to close at 22,617.73, wiping out its gains for the year. The S&amp;P 500 fell 3.7% to 6,910.39 and the Dow Jones Industrial Average dropped 1.9% to 48,147.33. Nvidia tumbled 14% on the day and 23% for the week, while Anthropic fell about 10% a day after its debut, nearly erasing its first-day gains.
+
+Worries over lofty AI valuations, slowing data-centre construction and the prospect of further Federal Reserve rate rises drove investors toward value stocks and government bonds. Even so, many investors said they still believed in the long-term AI story, seeing the rout as a sharp valuation correction rather than a burst bubble.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/business/view-nasdaq-plunges-5-day-after-anthropic-debut-investors-still-believe-ai-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original →</a> · <a class="readmore" href="https://www.reuters.com/business/finance/ai-tech-rout-prompts-us-investors-rush-into-value-stocks-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">Trilateral Summit</div>
+        <h2 class="mini-head">Trump, Xi and Putin Hold First Trilateral Talks in Shenzhen and Issue Four-Point 'Peace Declaration'</h2>
+        <p class="body-text">The leaders of the United States, China and Russia held their first-ever trilateral meeting in Shenzhen on November 19, issuing a joint statement pledging dialogue on reducing nuclear risks and preventing proliferation, alongside United Nations reform and higher refined-fuel supplies. The declaration made no mention of Ukraine or Iran and set no timetable for arms-control talks.</p>
+        <p class="src">Source: USA Today · <a href="https://www.usatoday.com/story/news/world/2026/11/19/trump-china-russia-xi-putin-apec-summit/92856409007/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">Military AI</div>
+        <h2 class="mini-head">Trump and Xi Agreed Military AI Decisions Must Involve Humans, Bessent Says</h2>
+        <p class="body-text">U.S. Treasury Secretary Scott Bessent said Trump and Xi agreed in Shenzhen that humans must always be involved in military decisions using artificial intelligence, and that AI should not act autonomously in major military operations. He added that U.S. policy on H200 chip sales to China is unchanged, with the H200 remaining the most advanced chip China may buy.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/china/trump-xi-agreed-that-military-ai-decisions-should-involve-humans-bessent-says-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>U.S. AI selloff deepens: the Nasdaq falls 5.3% in a day and turns negative for the year.</li><li>Trump, Xi and Putin hold their first trilateral meeting in Shenzhen and issue a four-point peace declaration.</li><li>Anthropic slumps a day after its debut, and Nvidia faces an SEC investigation.</li><li>Alibaba lowers its cloud outlook and bets on domestic chips to offset U.S. curbs.</li><li>Gold posts its worst week in eight months as money rotates into value stocks.</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">Rail Merger</div>
+        <h4>Trump Officials Met Privately With Hedge Funds Betting on Union Pacific Deal</h4>
+        <p class="body-text">Trump administration officials met privately this week with hedge fund investors betting on the outcome of Union Pacific's proposed $72 billion acquisition of Norfolk Southern, Bloomberg News reported. The deal would create the first coast-to-coast freight railroad in the United States.</p>
+        <p class="src">Source: Reuters, citing Bloomberg · <a href="https://www.reuters.com/legal/transactional/trump-officials-met-with-hedge-funds-union-pacific-norfolk-southern-deal-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">In this section: a peace declaration from the Shenzhen trilateral summit, and an AI selloff spreading worldwide, with Asian shares suffering their worst week since 2020.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 06 · Chip Curbs</div>
+    <h3>Alibaba Lowers Cloud Growth Outlook, Betting on Homegrown Chips to Offset U.S. Curbs</h3>
+    <p>Alibaba said new U.S. rules targeting Chinese firms' access to high-end Nvidia chips through overseas data centres could slow cloud revenue growth next year to 30% to 45%, down from 53% this quarter. The company kept its goal of $100 billion in external cloud revenue by 2030, saying domestic computing capacity would become the main engine of cloud growth.
+
+Tencent likewise said the curbs would slow development of its next-generation AI model, but that its cloud business would be largely unaffected because it mainly runs inference workloads that can operate on domestic chips.</p>
+    <p class="src">Source: Reuters Breakingviews · <a href="https://www.breakingviews.com/columns/breaking-view/alibaba-puts-quixotic-faith-made-in-china-chips-2026-11-20/?ref=aipolicydaily.org" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 07 · Asia Selloff</div>
+    <h3>Asian Shares Suffer Worst Week Since 2020 as Nikkei Drops 5% in a Day and Taiwan Falls 17% for the Week</h3>
+    <p>Asian shares tumbled on Friday as Anthropic's debut failed to restore confidence in the AI sector. Japan's Nikkei 225 closed 5.06% lower at 56,436.65, its lowest close in seven months; South Korea's Kospi fell 5.2%, and Taiwan shares lost 17.5% for the week, their biggest weekly drop since 1990. The MSCI Asia-Pacific index excluding Japan fell about 8.5% for the week.</p>
+    <p class="src">Source: Reuters · <a href="https://www.devdiscourse.com/article/international/4009883-global-markets-asian-shares-head-for-worst-week-since-2020-as-ai-rout-deepens?amp" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 08 · Red-Chip Listings</div>
+    <h3>China to Bar Young Red-Chip Firms From Listing Abroad Unless They Re-Domicile at Home</h3>
+    <p>China's securities regulator has told some law firms it will not approve offshore listing plans by red-chip firms established after the 2023 offshore listing rules unless they first re-domicile in China, Reuters reported exclusively. The CSRC has approved Hong Kong listings for just six red-chip companies so far this year, down sharply from 50 last year, a move that could dent Hong Kong's IPO market.</p>
+    <p class="src">Source: Reuters · <a href="https://srnnews.com/exclusive-beijing-to-bar-young-red-chip-firms-from-listing-outside-mainland-china-sources-say/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 09 · Rotation</div>
+    <h3>As AI Stocks Plunge, Investors Rush Into Value Stocks and Treasuries</h3>
+    <p>Wall Street fled the AI boom on Friday for the relative safety of bonds and lower-priced shares outside the tech sector. The Nasdaq Composite fell 10% for the week, its biggest weekly decline since 2020. The S&amp;P 500 value index is up 8% this year, against a 2% drop in the growth index. The 10-year Treasury yield fell to 4.93%, while the VIX volatility index soared 33% to 37.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/finance/ai-tech-rout-prompts-us-investors-rush-into-value-stocks-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><div class="pullquote"><div class="big">Nasdaq down 10% in a week</div><div class="small">Its biggest weekly drop since 2020</div><div class="note">The S&amp;P 500 value index is up 8% this year while the growth index is down 2%, as money rotates from AI growth stocks into value.</div></div></div><div class="cols-3"><article class="story">
+    <div class="num">No. 10 · Gold Rout</div>
+    <h3>Gold Heads for Worst Week in Eight Months as Silver Slides Below $42</h3>
+    <p>Spot gold fell to about $3,552 an ounce on Friday, on track for an 8.5% weekly drop, its worst since March, while silver slid below $42. A firm dollar, expectations of further Federal Reserve rate rises and investors selling metals to cover losses in AI stocks all weighed on bullion.</p>
+    <p class="src">Source: Kitco · <a href="https://www.kitco.com/news/article/2026-11-20/gold-heads-worst-week-eight-months-silver-slides-below-42-kitco-am-report" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 11 · Anthropic</div>
+    <h3>Anthropic Shares Dive 13% a Day After Debut, Leaving Retail Buyers Underwater</h3>
+    <p>Anthropic shares dropped 13% in early trading on Friday, falling to as low as $85, close to the $83 IPO price, after opening at $112 and closing at $97 on Thursday. The company sold 980 million shares at $83 apiece, raising $81 billion in the biggest IPO in history; proceeds rose to about $93.5 billion after underwriters exercised the greenshoe option.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/finance/anthropic-retail-traders-face-losses-shares-dive-13-day-after-debut-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 12 · Nvidia</div>
+    <h3>SEC Probing Nvidia's Accounting Practices as Shares Fall 23% in a Week</h3>
+    <p>The U.S. Securities and Exchange Commission is probing Nvidia's accounting practices, two people briefed on the matter said, adding to the legal troubles facing the chip giant. The Wall Street Journal reported on Tuesday that the SEC was investigating Nvidia but did not identify the focus. Hit by the probe and the fallout from Jensen Huang's departure, Nvidia shares have fallen more than a third from their October peak.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 13 · AI Funding</div>
+    <h3>Cognition AI in Talks for Funding Round at $75 Billion Valuation</h3>
+    <p>Coding startup Cognition AI is in funding talks at a $75 billion valuation, Bloomberg News reported. The talks come as the AI coding sector continues to attract heavy investment, with investors still willing to pay rich valuations for leading AI application companies.</p>
+    <p class="src">Source: Reuters, citing Bloomberg · <a href="https://www.reuters.com/technology/cognition-ai-talks-be-valued-75-billion-latest-funding-round-bloomberg-news-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 14 · Platform Lawsuits</div>
+    <h3>YouTube Nears $3 Billion Settlement Over U.S. School Districts' Addiction Claims</h3>
+    <p>YouTube has reached an in-principle agreement to pay about $3 billion to thousands of U.S. school districts that accused it of designing an addictive platform that harmed students' mental health, Bloomberg News reported. If completed, it would be one of the largest settlements in social-media addiction litigation.</p>
+    <p class="src">Source: Reuters, citing Bloomberg · <a href="https://www.reuters.com/legal/litigation/youtube-nears-3-billion-settlement-with-us-school-districts-over-addiction-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 15 · AI Infrastructure</div>
+    <h3>Oracle Says OpenAI Infrastructure Deal Is Fully Funded as Data-Centre Buildout Accelerates</h3>
+    <p>Oracle said on Friday that its infrastructure contract with OpenAI is fully funded following a final capital raise earlier this month. Its Abilene campus, where OpenAI's GPT-6 Astra was trained, is nearly complete; its next gigawatt-scale campus in Texas is fully permitted, and handover of Nvidia's next-generation Vera Rubin racks is under way.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/oracle-says-openai-infrastructure-deal-is-fully-funded-after-final-capital-raise-2026-11-20/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 16 · NBA</div>
+    <h3>Wembanyama Plays Through Blister for 32 and 11 as Spurs Beat Clippers; Knicks Win Third Straight</h3>
+    <p>Victor Wembanyama played through a painful blister to score 32 points and grab 11 rebounds as the San Antonio Spurs beat the Los Angeles Clippers 124-112, winning 13 of their last 14 games; Stephon Castle added 21 points and 12 assists. The New York Knicks held off the Minnesota Timberwolves 102-99 for a third straight win, while the Memphis Grizzlies thumped the Golden State Warriors 126-98 for a fifth straight victory.</p>
+    <p class="src">Source: Flashscore · <a href="https://www.flashscore.com/news/nba-roundup-november-19-2026/pldH95y8/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>16 stories in this edition, as of 07:30 Beijing time on November 21, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>Worth watching next week: U.S. Black Friday spending data, the Bank of Korea's rate decision, Tokyo CPI, and updated U.S. inflation and third-quarter GDP readings.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 21, 2026 · Saturday</span>
+        <span>No. 015 · 16 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 015</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>16 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月21日</strong>　星期六</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 16 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">标普 500 · 11 月 20 日收盘</div><div class="val">6,910.39</div><div class="chg down">跌 3.70%</div></div><div class="cell"><div class="label">纳斯达克综合指数 · 11 月 20 日收盘</div><div class="val">22,617.73</div><div class="chg down">跌 5.28%</div></div><div class="cell"><div class="label">道琼斯工业平均指数 · 11 月 20 日收盘</div><div class="val">48,147.33</div><div class="chg down">跌 1.93%</div></div><div class="cell"><div class="label">黄金 · 11 月 20 日收盘</div><div class="val">3,517.24 美元/盎司</div><div class="chg down">跌 3.02%</div></div><div class="cell"><div class="label">日经 225 指数 · 11 月 20 日收盘</div><div class="val">56,436.65</div><div class="chg down">跌 5.06%</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · AI 股暴跌</div>
+      <h1>美股遭遇 AI 抛售重挫，纳指单日暴跌 5.3% 年内转负</h1>
+      <p class="deck">人工智能股周五全线下挫，标普 500 指数跌 3.7%，纳斯达克综合指数创下 18 个月来最差一周表现。</p>
+      <div class="byline"><span>来源 <b>路透社</b></span></div>
+      <div class="lead-cols"><p>周五，人工智能股的抛售进一步加剧，纳斯达克综合指数大跌 5.3%，收于 22,617.73 点，年内由涨转跌；标普 500 指数下跌 3.7% 至 6,910.39 点，道琼斯工业平均指数下跌 1.9% 至 48,147.33 点。英伟达单日暴跌 14%，全周跌幅达 23%；Anthropic 在上市次日下跌约 10%，几乎回吐首日涨幅。
+
+市场担忧 AI 估值过高、数据中心建设放缓，以及美联储可能进一步加息，投资者纷纷转向价值股与国债避险。尽管如此，不少投资者仍表示相信 AI 长期前景，认为这是一次剧烈的估值修正，而非泡沫破裂。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/business/view-nasdaq-plunges-5-day-after-anthropic-debut-investors-still-believe-ai-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文 →</a> · <a class="readmore" href="https://www.reuters.com/business/finance/ai-tech-rout-prompts-us-investors-rush-into-value-stocks-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">三方峰会</div>
+        <h2 class="mini-head">特朗普、习近平、普京深圳首会，发表四点“和平宣言”</h2>
+        <p class="body-text">美中俄三国领导人 11 月 19 日在深圳举行史上首次三方会谈，并发表联合声明，承诺就降低核风险、防止核扩散展开对话，同时推动联合国改革、增加成品油供应。声明未提及乌克兰与伊朗问题，也未设定军控谈判时间表。</p>
+        <p class="src">来源：USA Today · <a href="https://www.usatoday.com/story/news/world/2026/11/19/trump-china-russia-xi-putin-apec-summit/92856409007/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">军事 AI</div>
+        <h2 class="mini-head">美财长：特朗普与习近平同意军事 AI 决策须有人类参与</h2>
+        <p class="body-text">美国财长贝森特表示，特朗普与习近平在深圳会晤中同意，涉及人工智能的军事决策必须始终有人类参与，重大军事行动不得由 AI 自主决定。他同时称，美国对华 H200 芯片出口政策不变，H200 仍是可售给中国的最先进芯片。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/china/trump-xi-agreed-that-military-ai-decisions-should-involve-humans-bessent-says-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>美股 AI 抛售加剧：纳指单日跌 5.3%，年内转负。</li><li>特朗普、习近平、普京深圳首会，发表四点和平宣言。</li><li>Anthropic 上市次日大跌，英伟达遭美证交会调查。</li><li>阿里下调云业务展望，押注国产芯片对冲美国管制。</li><li>黄金创八个月来最差一周，资金涌入价值股避险。</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">铁路并购</div>
+        <h4>特朗普政府官员曾私下会见押注联合太平洋并购案的对冲基金</h4>
+        <p class="body-text">据彭博社报道，特朗普政府官员本周私下会见了押注联合太平洋 720 亿美元收购诺福克南方公司前景的对冲基金投资者。这笔交易若成行，将缔造美国首条横贯大陆的货运铁路。</p>
+        <p class="src">来源：路透社（据彭博社报道） · <a href="https://www.reuters.com/legal/transactional/trump-officials-met-with-hedge-funds-union-pacific-norfolk-southern-deal-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版看点：深圳三方峰会发表和平宣言、AI 抛售蔓延全球，亚股创 2020 年以来最差一周。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 06 条 · 芯片管制</div>
+    <h3>阿里下调云业务增长展望，押注国产芯片对冲美国管制</h3>
+    <p>阿里巴巴表示，美国针对中国企业经海外数据中心获取高端英伟达芯片的新规，可能使明年云收入增速放缓至 30% 至 45%，低于本季度的 53%。公司仍维持 2030 年外部云收入 1,000 亿美元的目标，并称国产算力将成为云收入增长的主要引擎。
+
+腾讯同样表示新规将拖慢其下一代 AI 模型的研发，但云业务受影响有限，因其以可在国产芯片上运行的推理 workload 为主。</p>
+    <p class="src">来源：路透社 Breakingviews · <a href="https://www.breakingviews.com/columns/breaking-view/alibaba-puts-quixotic-faith-made-in-china-chips-2026-11-20/?ref=aipolicydaily.org" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 07 条 · 亚股暴跌</div>
+    <h3>亚股创 2020 年以来最差一周，日经单日跌 5% 台股周跌 17%</h3>
+    <p>Anthropic 上市未能恢复投资者对 AI 板块的信心，亚洲股市周五全线下挫。日经 225 指数收跌 5.06% 至 56,436.65 点，创七个月新低；韩国 Kospi 跌 5.2%，台湾加权指数单周跌幅达 17.5%，为 1990 年以来最大。MSCI 亚太（除日本）指数本周下跌约 8.5%。</p>
+    <p class="src">来源：路透社 · <a href="https://www.devdiscourse.com/article/international/4009883-global-markets-asian-shares-head-for-worst-week-since-2020-as-ai-rout-deepens?amp" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 08 条 · 红筹上市</div>
+    <h3>中国拟禁年轻红筹企业境外上市，须先迁回内地注册</h3>
+    <p>据路透社独家报道，中国证监会已告知部分律所，2023 年境外上市新规后设立的红筹企业，须先迁回内地注册，方可获批境外上市。今年以来证监会仅批准 6 家红筹企业赴港上市，远低于去年的 50 家，香港 IPO 市场或受冲击。</p>
+    <p class="src">来源：路透社 · <a href="https://srnnews.com/exclusive-beijing-to-bar-young-red-chip-firms-from-listing-outside-mainland-china-sources-say/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 09 条 · 资金轮动</div>
+    <h3>AI 股暴跌之际，投资者涌入价值股与国债避险</h3>
+    <p>周五华尔街资金加速逃离 AI 板块，涌向估值较低的价值股与国债。纳斯达克综合指数本周跌幅达 10%，为 2020 年以来最大；标普 500 价值指数年内上涨 8%，成长指数则下跌 2%。十年期美债收益率回落至 4.93%，VIX 恐慌指数飙升 33% 至 37。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/finance/ai-tech-rout-prompts-us-investors-rush-into-value-stocks-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><div class="pullquote"><div class="big">纳指单周跌 10%</div><div class="small">为 2020 年以来最大周跌幅</div><div class="note">标普 500 价值指数年内上涨 8%，成长指数下跌 2%，资金正从 AI 成长股轮动至价值股。</div></div></div><div class="cols-3"><article class="story">
+    <div class="num">第 10 条 · 金价大跌</div>
+    <h3>黄金创八个月来最差一周，白银跌破 42 美元</h3>
+    <p>现货金价周五跌至约 3,552 美元/盎司，单周跌幅约 8.5%，为 3 月以来最差；白银跌破 42 美元。美元走强、美联储加息预期升温，以及投资者抛售贵金属以弥补 AI 股损失，共同打压金价。</p>
+    <p class="src">来源：Kitco · <a href="https://www.kitco.com/news/article/2026-11-20/gold-heads-worst-week-eight-months-silver-slides-below-42-kitco-am-report" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 11 条 · Anthropic</div>
+    <h3>Anthropic 上市次日大跌 13%，散户首日追高被套</h3>
+    <p>Anthropic 股价周五早盘大跌 13%，一度跌至 85 美元，逼近 83 美元的发行价；此前该股首日开盘 112 美元、收于 97 美元。公司 980 万股以每股 83 美元发行，募资 810 亿美元，创史上最大 IPO；承销商行使超额配售权后募资总额升至约 935 亿美元。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/finance/anthropic-retail-traders-face-losses-shares-dive-13-day-after-debut-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 12 条 · 英伟达</div>
+    <h3>美证交会正调查英伟达会计问题，股价一周跌 23%</h3>
+    <p>据知情人士透露，美国证交会正在调查英伟达的会计问题，这是该芯片巨头面临的最新法律麻烦。此前《华尔街日报》报道证交会已展开调查，但未说明调查重点。受黄仁勋离职风波与调查消息拖累，英伟达股价自 10 月高点以来已跌去逾三分之一。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/us-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 13 条 · AI 融资</div>
+    <h3>Cognition AI 洽谈新一轮融资，估值有望达 750 亿美元</h3>
+    <p>据彭博社报道，编程初创公司 Cognition AI 正在洽谈新一轮融资，估值有望达到 750 亿美元。消息传出之际，AI 编程赛道持续吸金，投资者对头部 AI 应用公司的估值热情不减。</p>
+    <p class="src">来源：路透社（据彭博社报道） · <a href="https://www.reuters.com/technology/cognition-ai-talks-be-valued-75-billion-latest-funding-round-bloomberg-news-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 14 条 · 平台诉讼</div>
+    <h3>YouTube 接近达成 30 亿美元和解，了结美学区成瘾索赔</h3>
+    <p>据彭博社报道，YouTube 已原则上同意向数千个美国学区支付约 30 亿美元，以了结对方指控其平台设计令人成瘾、损害学生心理健康的诉讼。和解一旦落地，将成为社交平台成瘾诉讼中规模最大的赔偿之一。</p>
+    <p class="src">来源：路透社（据彭博社报道） · <a href="https://www.reuters.com/legal/litigation/youtube-nears-3-billion-settlement-with-us-school-districts-over-addiction-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 15 条 · AI 基建</div>
+    <h3>甲骨文称与 OpenAI 的基建协议已全额融资，数据中心建设加速</h3>
+    <p>甲骨文周五表示，在本月完成最后一轮融资后，与 OpenAI 的基建合同已全额融资。其位于得州阿比林的园区已接近完工，OpenAI 的 GPT-6 Astra 正是在此训练；下一座吉瓦级园区已获全部许可，英伟达新一代 Vera Rubin 机架移交正在进行中。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/oracle-says-openai-infrastructure-deal-is-fully-funded-after-final-capital-raise-2026-11-20/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 16 条 · NBA</div>
+    <h3>文班亚马带伤砍 32+11，马刺力克快船；尼克斯三连胜</h3>
+    <p>文班亚马带伤出战，砍下 32 分 11 个篮板，率领马刺 124-112 力克快船，近 14 战赢下 13 场；卡斯尔贡献 21 分 12 次助攻。尼克斯 102-99 险胜森林狼，取得三连胜；灰熊 126-98 大胜勇士，豪取五连胜。</p>
+    <p class="src">来源：Flashscore · <a href="https://www.flashscore.com/news/nba-roundup-november-19-2026/pldH95y8/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 16 条，截至北京时间2026年11月21日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>下周值得跟踪：美国黑色星期五消费数据、韩国央行利率决议、东京 CPI，以及美国通胀与三季度 GDP 的更新读数。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月21日 · 星期六</span>
+        <span>第 015 期 · 共 16 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
