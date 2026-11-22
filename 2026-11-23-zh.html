@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新闻日报 · 2026年11月23日 · 第 017 期</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en">
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh" checked>
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 017</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>17 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 23, 2026</strong> &nbsp;·&nbsp; Monday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>17 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">S&amp;P 500 · close, Nov 20</div><div class="val">6,910.39</div><div class="chg down">down 3.70%</div></div><div class="cell"><div class="label">Nasdaq · close, Nov 20</div><div class="val">22,617.73</div><div class="chg down">down 5.28%</div></div><div class="cell"><div class="label">Dow Jones · close, Nov 20</div><div class="val">48,147.33</div><div class="chg down">down 1.93%</div></div><div class="cell"><div class="label">Spot gold · close, Nov 20</div><div class="val">$3,517.24/oz</div><div class="chg down">down about 3.0%</div></div><div class="cell"><div class="label">10-year Treasury yield · Nov 20</div><div class="val">4.91%</div><div class="chg down">down about 10 bps</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Front Page · Market Rout</div>
+      <h1>Wall Street's 'Black Friday': S&amp;P 500 and Dow Both Slide Into Correction Territory</h1>
+      <p class="deck">The AI trade unravels into a global sell-off: the S&amp;P 500 falls for a seventh straight session, the Nasdaq turns negative for the year, and Asia-Pacific shares suffer their worst week since 2020.</p>
+      <div class="byline"><span>Source <b>Reuters · The Wall Street Journal</b></span></div>
+      <div class="lead-cols"><p>On Friday, November 20, US stocks suffered a sharp sell-off: the S&amp;P 500 fell 3.7% to 6,910.39, its seventh straight daily loss, officially entering correction territory; the Nasdaq Composite plunged 5.28% to 22,617.73, wiping out its gains for the year; and the Dow Jones Industrial Average dropped 949.73 points (-1.93%) to 48,147.33. Nvidia tumbled about 14% in a single session, and Anthropic, fresh from its record-breaking listing, fell 9.1% to $88.30.
+
+The rout spread worldwide: Asia-Pacific shares suffered their worst week since 2020, with the MSCI Asia-Pacific ex-Japan index down 8% for the week, Taiwanese shares down 17% for their worst week since 1990, and Japan's Nikkei falling about 5% in a day. Worries over lofty AI valuations and the payoff from massive infrastructure spending, together with rising bets on a December Federal Reserve rate hike and turmoil at Nvidia, drove investors toward safety; consumer staples was the only S&amp;P 500 sector to finish in positive territory.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-20-2026" target="_blank" rel="noopener noreferrer">Read original →</a> · <a class="readmore" href="https://live.euronext.com/en/financial-news/tech-leads-global-stocks-rout-treasury-yields-fall" target="_blank" rel="noopener noreferrer">Read original →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">Climate Summit</div>
+        <h2 class="mini-head">COP31 Talks Collapse as Fossil-Fuel Rift Sinks Climate Summit</h2>
+        <p class="body-text">The UN climate summit COP31 collapsed in Antalya, Türkiye, on Sunday after the EU and other countries rejected a final draft deal from co-hosts Türkiye and Australia because it made no mention of phasing out fossil fuels. Two weeks of talks plus two days of overtime made it the longest climate summit on record — and the first to end without an overarching deal since Copenhagen in 2009.</p>
+        <p class="src">Source: The Wall Street Journal · <a href="https://www.wsj.com/world/u-n-climate-talks-collapse-over-fossil-fuel-rift-c70ee620" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">Drug Crackdown</div>
+        <h2 class="mini-head">Mexico Captures FBI Most-Wanted Drug Lord 'El Chapo Isidro'</h2>
+        <p class="body-text">Mexican military forces have captured Fausto Isidro Meza Flores, known as 'El Chapo Isidro,' one of the FBI's 10 most wanted fugitives. It is the latest in a string of high-profile drug-lord arrests in Mexico.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/podcasts/cop31-collapse-el-chapo-isidro-arrest-south-koreas-ai-cheating-scandal-2026-11-22/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>Wall Street's 'Black Friday': the S&amp;P 500 and the Dow enter correction territory, and the Nasdaq wipes out its gains for the year.</li><li>COP31 talks collapse: nearly 200 countries fail to agree on fossil-fuel language.</li><li>Anthropic slides after its record listing, having raised $81.3 billion.</li><li>China's three stock exchanges cut the margin ratio to 80% in a fresh market-support package.</li><li>Did AI crack the Riemann hypothesis? An Anthropic mathematician says he proved it with Claude.</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">US Midterms</div>
+        <h4>After Winning the Senate, Schumer Faces First Leadership Challenge in 30 Years</h4>
+        <p class="body-text">Chuck Schumer led Senate Democrats to a decisive 56-seat majority in November's midterm elections, but some in the party now question whether the 76-year-old leader should stay at the helm. Senator Chris Van Hollen has mounted a challenge — the first contested Senate Democratic leadership race since 1994 — with a secret ballot set for December 1.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/us/schumer-led-democrats-big-senate-win-now-some-say-they-need-new-leader-2026-11-22/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">In this edition: a Wall Street rout and the collapse of COP31 arrive on the same weekend, as the fading AI trade reshapes global markets and climate talks alike.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 05 · China Markets</div>
+    <h3>China Cuts Margin Ratio to 80% in Fresh Market-Support Push</h3>
+    <p>China's Shanghai, Shenzhen and Beijing stock exchanges announced on November 22 that, with approval from the securities regulator, the minimum margin ratio for buying shares on credit will fall to 80% from 100% starting November 30, reversing a tightening imposed in January. Fees will also be cut, and Shenzhen plans market makers for ChiNext. Outstanding margin loans have fallen more than 20% from their late-June peak to about 2.2 trillion yuan.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/world/chinese-exchanges-ease-margin-trading-requirements-aid-stock-markets-2026-11-22/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 06 · Hong Kong Vote</div>
+    <h3>Hong Kong Election Committee Poll Draws Record 98.79% Turnout, With Surprise Upsets</h3>
+    <p>Voting closed on Sunday in Hong Kong's 2026 Election Committee Subsector Ordinary Elections, with 5,640 registered voters casting ballots — a record turnout of 98.79%, far above the 89.77% recorded in 2021. A total of 856 candidates contested 723 seats, and several prominent business and professional figures lost out in surprise upsets.</p>
+    <p class="src">Source: South China Morning Post · Hong Kong Government Press Release · <a href="https://www.info.gov.hk/gia/general/202611/22/P2026112200487.htm" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 07 · Korea Exams</div>
+    <h3>South Korea's Education Minister Resigns Over AI Cheating Scandal; 111 Violations Found on Exam Day</h3>
+    <p>South Korean Education Minister Choi Kyo-jin resigned on Sunday, and President Lee Jae Myung accepted the resignation the same day. The trigger was an AI-assisted cheating scandal: the top scorer on a national tax accountant exam admitted cheating with a miniature camera and AI just four days before the Suneung college entrance exam, forcing last-minute rule changes that sowed confusion. Officials still detected 111 cases of misconduct involving electronic devices on exam day.</p>
+    <p class="src">Source: Reuters · Korea JoongAng Daily · <a href="https://www.koreajoongangdaily.com/korea/lee-accepts-education-ministers-resignation-after-csat-anticheating-measures-trigger-nationwide-confusion/12984387" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 08 · Gold Sell-Off</div>
+    <h3>Gold Slides to 14-Month Low, Down About 9% for Its Worst Week in Eight Months</h3>
+    <p>Spot gold fell to $3,517.24 on November 20, down about 3% on the day after touching $3,513.54, a 14-month low. For the week it lost about 9%, its steepest weekly decline in eight months. A strong dollar, expectations of a December rate hike and forced selling tied to the equity rout weighed on bullion, with silver falling alongside.</p>
+    <p class="src">Source: Reuters · <a href="https://goldrates.com/news/gold-prices-plunge-14-month-low-november-2026/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><div class="pullquote"><div class="big">$3,517</div><div class="small">Spot gold price, close on November 20</div><div class="note">Gold hits a 14-month low, down about 9% for the week — its worst weekly drop in eight months — pressured by a strong dollar and December hike bets.</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">No. 09 · Asia Markets</div>
+    <h3>Asia-Pacific Shares Suffer Worst Week Since 2020 as Taiwan Tumbles 17%</h3>
+    <p>The AI sell-off swept Asia-Pacific: the MSCI Asia-Pacific ex-Japan index fell 8% for the week, its worst since the COVID pandemic in 2020; Taiwan's benchmark sank more than 17% for its worst week since 1990, with TSMC down 5.2% in a day; and Japan's Nikkei dropped about 5%, with SoftBank plunging 14.6%.</p>
+    <p class="src">Source: Reuters · <a href="https://live.euronext.com/en/financial-news/stocks-slide-ai-selloff-deepens-asia-set-worst-week-2020" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 10 · The Fed</div>
+    <h3>Stubborn Inflation All but Seals a December Fed Rate Hike</h3>
+    <p>After a hotter-than-expected October inflation print, Wall Street broadly sees a December Federal Reserve rate hike as all but certain, with some strategists even pricing in a 50-basis-point move. Markets have repriced the rate path, pushing the dollar higher and front-end Treasury yields up — another force weighing on stocks and gold.</p>
+    <p class="src">Source: The Wall Street Journal · <a href="https://www.wsj.com/livecoverage/stock-market-cpi-inflation-11-10-2026/card/stubborn-inflation-seals-december-rate-hike-wall-street-says-Y1Q8BTR5uR6yt6zK8FIg" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 11 · AI Listing</div>
+    <h3>Anthropic Stages the Largest IPO in History, Raising $81.3 Billion — Then Slides</h3>
+    <p>Anthropic priced its shares at $83, raising about $81.3 billion in the largest IPO on record at a valuation of roughly $1.5 trillion, and began trading on Nasdaq on November 19, jumping 17% on its first day. The celebration was short-lived: in Friday's AI sell-off the shares fell 9.1% to $88.30, closing in on the IPO price.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/technology/anthropics-path-ai-startup-industry-defining-ipo-2026-11-19/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 12 · AI Chips</div>
+    <h3>Nvidia Revenue Doubles to $115.8 Billion in First Results Since Huang's Exit</h3>
+    <p>Nvidia reported fiscal 2027 third-quarter revenue of $115.8 billion, up 103% year over year, with data center revenue of $107.6 billion, up 110%. Its new Vera Rubin NVL72 platform has shipped, and the company guided to about $130 billion next quarter. It was the first earnings report since Jensen Huang resigned as CEO on November 12; interim CEO Colette Kress confirmed the planned acquisition of Hugging Face remains on track.</p>
+    <p class="src">Source: Nvidia official results · Morningstar · <a href="https://www.morningstar.com/news/globe-newswire/9879852/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 13 · Frontier Models</div>
+    <h3>OpenAI Launches GPT-6.2 Astra and Sol, Cutting Flagship Prices by 20%</h3>
+    <p>OpenAI launched GPT-6.2 Astra and Sol on November 17: Astra targets complex professional work, with API prices 20% lower than GPT-6 Astra ($8 per million input tokens, $40 for output), while Sol is the everyday efficient model at unchanged pricing. OpenAI says Astra is its first externally released model to meet the 'High' threshold for AI self-improvement.</p>
+    <p class="src">Source: SiliconANGLE (OpenAI announcement) · <a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 14 · Google Models</div>
+    <h3>Google Unveils Gemini 4 Neon: Frontier Reasoning, Faster and Cheaper</h3>
+    <p>Google introduced Gemini 4 Neon on November 18, sitting between the flagship Carbon and the fast, lightweight Hydrogen. It targets complex coding, knowledge work and scientific reasoning, priced at $3 per million input tokens and $15 for output, with a one-million-token context window and an Intelligence Index score of 61, ranking among the top three in its class.</p>
+    <p class="src">Source: Google official blog · <a href="https://blog.google/intl/en-in/products/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 15 · AI and Maths</div>
+    <h3>Did AI Crack the Riemann Hypothesis? Anthropic Mathematician Says He Proved It With Claude</h3>
+    <p>Anthropic mathematician Levent Alpöge announced on November 20 that, working with Claude for about six weeks, he had completed a proof of the Riemann hypothesis — the problem posed in 1859 that has stood unsolved for nearly 170 years — releasing it as 17 million lines of Lean code. On November 21, the Lean and Mathlib communities said they had independently verified the proof; the Clay Mathematics Institute still lists it as unsolved, and peer review is yet to come.</p>
+    <p class="src">Source: USA Today · <a href="https://www.usatoday.com/story/tech/2026/11/21/ai-claude-riemann-hypothesis-math-mystery/92901494007/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 16 · Entertainment</div>
+    <h3>Miley Cyrus Weds Drummer Maxx Morando in California</h3>
+    <p>Grammy-winning pop star Miley Cyrus married her longtime partner, drummer Maxx Morando, in a private ceremony in Palm Springs, California, on Saturday — a month after the pair performed together on stage.</p>
+    <p class="src">Source: Reuters · People magazine · <a href="https://www.reuters.com/business/media-telecom/miley-cyrus-weds-drummer-maxx-morando-california-people-magazine-reports-2026-11-22/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 17 · College Football</div>
+    <h3>College Football Top 25: Top Three Hold as Big Ten Falls Out of Top Five for First Time Since 2021</h3>
+    <p>In the latest AP Top 25 college football poll, Georgia, Utah and Notre Dame all won on Saturday to remain 1-2-3, while Big Ten upsets left the conference without a team in the top five for the first time since 2021; previously unbeaten UCLA fell to No. 10.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/sports/georgia-utah-notre-dame-remain-1-2-3-big-ten-out-ap-top-5--flm-2026-11-22/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>17 stories in this edition, as of 07:30 Beijing time on November 23, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>Coming up: the latest US economic data ahead of the Federal Reserve's December meeting, Anthropic's first week as a listed company, and countries' responses to the collapse of COP31.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 23, 2026 · Monday</span>
+        <span>No. 017 · 17 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 017</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>17 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月23日</strong>　星期一</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 17 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">标普 500 · 11 月 20 日收盘</div><div class="val">6,910.39</div><div class="chg down">跌 3.70%</div></div><div class="cell"><div class="label">纳斯达克 · 11 月 20 日收盘</div><div class="val">22,617.73</div><div class="chg down">跌 5.28%</div></div><div class="cell"><div class="label">道琼斯 · 11 月 20 日收盘</div><div class="val">48,147.33</div><div class="chg down">跌 1.93%</div></div><div class="cell"><div class="label">现货金 · 11 月 20 日收盘</div><div class="val">3,517.24 美元/盎司</div><div class="chg down">跌约 3.0%</div></div><div class="cell"><div class="label">10 年期美债收益率 · 11 月 20 日</div><div class="val">4.91%</div><div class="chg down">跌约 10 个基点</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · 美股暴跌</div>
+      <h1>美股遭遇“黑色星期五”：标普与道指双双跌入修正区间</h1>
+      <p class="deck">AI 交易瓦解引发全球抛售，标普七连跌、纳指转负，亚太股市创 2020 年以来最差一周。</p>
+      <div class="byline"><span>来源 <b>路透社 · 华尔街日报</b></span></div>
+      <div class="lead-cols"><p>11 月 20 日星期五，美股遭遇重挫：标普 500 指数下跌 3.7%，收于 6910.39 点，连续第七个交易日走低，正式跌入修正区间；纳斯达克综合指数暴跌 5.28%，收于 22617.73 点，抹去全年涨幅；道琼斯工业平均指数下跌 949.73 点（-1.93%），收于 48147.33 点。英伟达单日重挫约 14%，刚创纪录上市的 Anthropic 也下跌 9.1%，收于 88.30 美元。
+
+抛售蔓延全球：亚太股市创下 2020 年以来最差一周，MSCI 亚太（除日本）指数周跌 8%，台湾股市周跌 17%，为 1990 年以来最差一周，日经指数单日下跌约 5%。市场担忧 AI 估值过高、巨额基建投入回报存疑，加之美联储 12 月加息预期升温与英伟达高层动荡，避险情绪迅速升温，标普 500 全部板块中仅必需消费品收涨。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-20-2026" target="_blank" rel="noopener noreferrer">阅读原文 →</a> · <a class="readmore" href="https://live.euronext.com/en/financial-news/tech-leads-global-stocks-rout-treasury-yields-fall" target="_blank" rel="noopener noreferrer">阅读原文 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">气候峰会</div>
+        <h2 class="mini-head">COP31 谈判破裂：化石燃料分歧致气候峰会无果而终</h2>
+        <p class="body-text">在土耳其安塔利亚举行的联合国气候大会 COP31 于周日破裂：欧盟等多国拒绝接受主席国土耳其与澳大利亚提出的最终协议草案，因其中未提及逐步淘汰化石燃料。谈判历时两周并加时两天，成为史上最长的气候峰会，也是自 2009 年哥本哈根以来首次未能达成总体协议。</p>
+        <p class="src">来源：华尔街日报 · <a href="https://www.wsj.com/world/u-n-climate-talks-collapse-over-fossil-fuel-rift-c70ee620" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">缉毒行动</div>
+        <h2 class="mini-head">墨西哥抓获 FBI 十大通缉犯“小矮子伊西德罗”</h2>
+        <p class="body-text">墨西哥军方抓获法乌斯托·伊西德罗·梅萨·弗洛雷斯，即“小矮子伊西德罗”，他是美国联邦调查局十大通缉犯之一。这是墨西哥近期连续抓获大毒枭行动中的最新一起。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/podcasts/cop31-collapse-el-chapo-isidro-arrest-south-koreas-ai-cheating-scandal-2026-11-22/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>美股“黑色星期五”：标普与道指跌入修正区间，纳指抹去全年涨幅。</li><li>COP31 谈判破裂：近 200 国未能就化石燃料措辞达成协议。</li><li>Anthropic 创纪录上市后股价回落，募资 813 亿美元。</li><li>中国三家交易所下调融资保证金比例至 80%，稳市组合拳再出。</li><li>AI 攻克黎曼猜想？Anthropic 数学家称与 Claude 合作完成证明。</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">美国中期选举</div>
+        <h4>赢下参议院却面临挑战：舒默领袖地位遭遇 30 年来首场党内竞逐</h4>
+        <p class="body-text">查克·舒默带领民主党在 11 月中期选举中赢得参议院 56 席的决定性多数，但党内已有人质疑这位 76 岁的领袖是否还适合继续掌舵。参议员克里斯·范霍伦发起挑战，这是自 1994 年以来首场有竞争的参议院民主党领袖选举，12 月 1 日将秘密投票。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/us/schumer-led-democrats-big-senate-win-now-some-say-they-need-new-leader-2026-11-22/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版看点：美股暴跌与 COP31 破裂同日登场，AI 交易的退潮正在重塑全球市场与气候谈判。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 05 条 · 中国股市</div>
+    <h3>中国下调融资保证金比例至 80%，稳市组合拳再出</h3>
+    <p>沪深北三家交易所 11 月 22 日宣布，经证监会批准，自 11 月 30 日起，融资买入的最低保证金比例由 100% 下调至 80%，扭转今年 1 月的收紧政策；同时下调部分费用，深交所拟在创业板引入做市商制度。两融余额自 6 月底峰值回落逾 20%，至约 2.2 万亿元。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/world/chinese-exchanges-ease-margin-trading-requirements-aid-stock-markets-2026-11-22/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 06 条 · 香港选举</div>
+    <h3>香港选委会选举投票率 98.79% 创纪录，多名知名人士意外落选</h3>
+    <p>香港 2026 年选举委员会界别分组一般选举周日投票结束，5640 名登记选民投票，投票率达 98.79%，创历史新高，远超 2021 年的 89.77%。856 名候选人角逐 723 个席位，部分商界与专业界知名人士意外落选。</p>
+    <p class="src">来源：南华早报 · 香港特区政府新闻公报 · <a href="https://www.info.gov.hk/gia/general/202611/22/P2026112200487.htm" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 07 条 · 韩国高考</div>
+    <h3>AI 作弊风波致韩国教育部长官辞职，高考当天查获 111 起违规</h3>
+    <p>韩国教育部长官崔教振周日引咎辞职，总统李在明随即接受。导火索是 AI 辅助作弊丑闻：全国税务师考试状元承认用微型相机与 AI 作弊，距“修能”高考仅四天，教育部临考前频改防作弊措施引发混乱，考试当天仍查获 111 起涉电子设备违规。</p>
+    <p class="src">来源：路透社 · Korea JoongAng Daily · <a href="https://www.koreajoongangdaily.com/korea/lee-accepts-education-ministers-resignation-after-csat-anticheating-measures-trigger-nationwide-confusion/12984387" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 08 条 · 金价大跌</div>
+    <h3>金价跌至 14 个月低点，周跌约 9% 创八个月最大跌幅</h3>
+    <p>现货金价 11 月 20 日跌至 3517.24 美元，单日下跌约 3%，盘中一度触及 3513.54 美元的 14 个月低点；全周跌幅约 9%，为八个月来最大周跌幅。强势美元、12 月加息预期以及股市抛售引发的被迫平仓共同打压金价，白银亦同步走低。</p>
+    <p class="src">来源：路透社 · <a href="https://goldrates.com/news/gold-prices-plunge-14-month-low-november-2026/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><div class="pullquote"><div class="big">3,517 美元</div><div class="small">现货金价，11 月 20 日收盘</div><div class="note">金价创 14 个月新低，周跌约 9%，为八个月来最大周跌幅；强势美元与 12 月加息预期双重施压。</div></div></div><div class="cols-2"><article class="story">
+    <div class="num">第 09 条 · 亚太股市</div>
+    <h3>亚太股市创 2020 年以来最差一周，台股周跌 17%</h3>
+    <p>AI 抛售席卷亚太：MSCI 亚太（除日本）指数本周下跌 8%，为 2020 年新冠疫情以来最差一周；台湾加权指数周跌逾 17%，创 1990 年以来最差单周，台积电单日跌 5.2%；日本日经指数单日跌约 5%，软银暴跌 14.6%。</p>
+    <p class="src">来源：路透社 · <a href="https://live.euronext.com/en/financial-news/stocks-slide-ai-selloff-deepens-asia-set-worst-week-2020" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 10 条 · 美联储</div>
+    <h3>通胀顽固，美联储 12 月加息几成定局</h3>
+    <p>10 月通胀数据高于预期后，华尔街普遍认为美联储 12 月加息几成定局，部分策略师甚至预计加息 50 个基点。市场重新定价利率路径，美元走强、前端美债收益率上行，成为压垮股市与金价的另一重力量。</p>
+    <p class="src">来源：华尔街日报 · <a href="https://www.wsj.com/livecoverage/stock-market-cpi-inflation-11-10-2026/card/stubborn-inflation-seals-december-rate-hike-wall-street-says-Y1Q8BTR5uR6yt6zK8FIg" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 11 条 · AI 上市</div>
+    <h3>Anthropic 创史上最大 IPO：募资 813 亿美元，首日大涨后回落</h3>
+    <p>Anthropic 以每股 83 美元定价、募资约 813 亿美元完成史上最大规模 IPO，估值约 1.5 万亿美元，11 月 19 日登陆纳斯达克，首日大涨 17%。但好景不长：次日 AI 抛售中其股价下跌 9.1%，收于 88.30 美元，逼近发行价。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/technology/anthropics-path-ai-startup-industry-defining-ipo-2026-11-19/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 12 条 · AI 芯片</div>
+    <h3>英伟达营收翻倍至 1158 亿美元，黄仁勋离任后首份财报仍创纪录</h3>
+    <p>英伟达发布 2027 财年第三季度财报：营收 1158 亿美元，同比增长 103%，数据中心业务 1076 亿美元，同比增长 110%；新一代 Vera Rubin NVL72 平台已出货，下季度指引约 1300 亿美元。这是黄仁勋 11 月 12 日辞任后公司首份财报，临时 CEO 科莱特·克雷斯同时确认收购 Hugging Face 的计划仍在推进。</p>
+    <p class="src">来源：英伟达官方财报 · Morningstar · <a href="https://www.morningstar.com/news/globe-newswire/9879852/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 13 条 · 大模型</div>
+    <h3>OpenAI 发布 GPT-6.2 Astra 与 Sol，旗舰模型降价两成</h3>
+    <p>OpenAI 11 月 17 日发布 GPT-6.2 Astra 与 Sol：Astra 面向复杂专业工作，API 定价较 GPT-6 Astra 下调 20%（每百万 tokens 输入 8 美元、输出 40 美元）；Sol 为日常高效模型，定价不变。OpenAI 称 Astra 是首个达到其“AI 自我提升 High 等级”的对外发布模型。</p>
+    <p class="src">来源：SiliconANGLE（OpenAI 官方发布） · <a href="https://siliconangle.com/2026/11/17/openai-rolls-out-gpt-6-2-astra-for-professional-work-and-gpt-6-2-sol-for-everyday-work/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 14 条 · 谷歌模型</div>
+    <h3>谷歌推出 Gemini 4 Neon：旗舰级推理，更快更便宜</h3>
+    <p>谷歌 11 月 18 日推出 Gemini 4 Neon，定位介于旗舰 Carbon 与轻量 Hydrogen 之间，主打复杂编程、知识工作与科学推理，API 定价为每百万 tokens 输入 3 美元、输出 15 美元，上下文窗口 100 万 tokens，智能指数 61 分，位列同类模型前三。</p>
+    <p class="src">来源：谷歌官方博客 · <a href="https://blog.google/intl/en-in/products/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 15 条 · AI 与数学</div>
+    <h3>AI 攻克黎曼猜想？Anthropic 数学家称与 Claude 合作完成证明</h3>
+    <p>Anthropic 数学家莱文特·阿尔珀格 11 月 20 日宣布，他与 Claude 合作约六周，完成了黎曼猜想的证明——这一 1859 年提出、悬置近 170 年的数学难题，证明以 1700 万行 Lean 代码形式发布。11 月 21 日，Lean 与 Mathlib 社区宣布已独立验证该证明；克雷数学研究所仍将其列为未解问题，同行评审尚待完成。</p>
+    <p class="src">来源：USA Today · <a href="https://www.usatoday.com/story/tech/2026/11/21/ai-claude-riemann-hypothesis-math-mystery/92901494007/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 16 条 · 娱乐</div>
+    <h3>麦莉·赛勒斯与鼓手马克斯·莫兰多在加州完婚</h3>
+    <p>格莱美奖得主麦莉·赛勒斯周六在加州棕榈泉与长期伴侣、鼓手马克斯·莫兰多举行私人婚礼，一个月前两人才刚刚同台演出。</p>
+    <p class="src">来源：路透社 · People 杂志 · <a href="https://www.reuters.com/business/media-telecom/miley-cyrus-weds-drummer-maxx-morando-california-people-magazine-reports-2026-11-22/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 17 条 · 大学橄榄球</div>
+    <h3>大学橄榄球排名：前三稳固，十大联盟自 2021 年来首次无缘前五</h3>
+    <p>美联社大学橄榄球最新排名：佐治亚、犹他与圣母大学周六均获胜，继续分列前三；十大联盟球队遭遇冷门，自 2021 年以来首次无缘前五，不败的 UCLA 跌至第 10。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/sports/georgia-utah-notre-dame-remain-1-2-3-big-ten-out-ap-top-5--flm-2026-11-22/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 17 条，截至北京时间2026年11月23日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>下期关注：美联储 12 月议息会议前的最新经济数据、Anthropic 上市首周的表现，以及各国对 COP31 破裂的后续回应。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月23日 · 星期一</span>
+        <span>第 017 期 · 共 17 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
