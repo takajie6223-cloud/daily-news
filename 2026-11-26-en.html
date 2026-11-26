@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily News · November 26, 2026 · No. 020</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  :root{
+    --paper:#f7f2e7; --paper-2:#efe8d8; --sheet:#fdfaf3;
+    --ink:#1a1814; --ink-2:#3d3830; --ink-3:#6f675a;
+    --line:#1a1814; --line-light:#d8cfba;
+    --accent:#8c1d18; --accent-soft:#f3e6d3; --box:#f1ead9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#121110; --paper-2:#1a1815; --sheet:#1e1b17;
+      --ink:#ece5d3; --ink-2:#cfc6b2; --ink-3:#9a8f7a;
+      --line:#ece5d3; --line-light:#3a352c;
+      --accent:#e08a84; --accent-soft:#2a2320; --box:#25211c;
+    }
+  }
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(0,0,0,.03), transparent 55%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.008) 3px, rgba(0,0,0,.008) 4px);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Songti SC","STSong",serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  a{color:inherit}
+  .sheet{
+    max-width:1120px; margin:0 auto; background:var(--sheet);
+    box-shadow:0 0 0 1px var(--line-light), 0 18px 50px rgba(0,0,0,.14), 12px 0 32px rgba(0,0,0,.06), -12px 0 32px rgba(0,0,0,.06);
+    padding:0 clamp(18px,4.5vw,52px) 48px;
+  }
+  @media(max-width:640px){ .sheet{box-shadow:none} body{background:var(--sheet)} }
+  /* CSS-only EN | 中文 toggle (no scripts: blob pages are script-sandboxed) */
+  .lang-radio{position:absolute; width:1px; height:1px; opacity:0; pointer-events:none}
+  .lang-switch{
+    position:sticky; top:0; z-index:30; display:flex; justify-content:flex-end;
+    max-width:1120px; margin:0 auto; padding:10px clamp(18px,4.5vw,52px) 0;
+    pointer-events:none;
+  }
+  .lang-switch .box{
+    display:inline-flex; align-items:stretch; border:1.5px solid var(--accent);
+    font-family:"Noto Sans SC",sans-serif; background:var(--sheet); pointer-events:auto;
+  }
+  .lang-switch label{
+    color:var(--accent); cursor:pointer; font-size:12.5px; font-weight:700;
+    letter-spacing:.06em; padding:6px 12px; line-height:1.2; user-select:none;
+  }
+  .lang-switch label + label{border-left:1.5px solid var(--accent)}
+  #snap-lang-en:checked ~ .lang-switch label[for="snap-lang-en"],
+  #snap-lang-zh:checked ~ .lang-switch label[for="snap-lang-zh"]{
+    background:var(--accent); color:var(--sheet);
+  }
+  #snap-lang-en:checked ~ .sheet .edition-zh{display:none}
+  #snap-lang-zh:checked ~ .sheet .edition-en{display:none}
+  .lang-radio:focus-visible ~ .lang-switch .box{outline:2px solid var(--ink); outline-offset:2px}
+  .topstrip{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); padding:12px 0 10px;
+  }
+  .topstrip b{color:var(--ink); font-weight:700}
+  .masthead{ text-align:center; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:18px 0 6px; position:relative}
+  .masthead::after{content:""; display:block; border-bottom:4px solid var(--line); margin-top:14px}
+  .mast-kicker{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.42em; color:var(--ink-3); text-transform:uppercase; margin-bottom:6px}
+  .mast-title{
+    font-family:"Playfair Display","Noto Serif SC",serif;
+    font-size:clamp(52px,10.5vw,108px); line-height:.92; font-weight:900; letter-spacing:.02em; margin:0;
+  }
+  .mast-title .cn{font-family:"Noto Serif SC",serif; letter-spacing:.08em}
+  .mast-sub{display:flex; justify-content:center; align-items:center; gap:14px; margin-top:10px; flex-wrap:wrap}
+  .mast-sub .rule{height:1px; width:72px; background:var(--line)}
+  .mast-sub p{margin:0; font-size:13.5px; letter-spacing:.28em; color:var(--ink-2)}
+  .seal{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:52px;height:52px; border:2px solid var(--accent); color:var(--accent);
+    font-weight:900; font-size:15px; line-height:1.05; text-align:center; letter-spacing:.06em;
+    transform:rotate(-4deg); flex:none;
+  }
+  .dateline{
+    display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
+    border-bottom:1px solid var(--line); padding:9px 0;
+    font-family:"Noto Sans SC",sans-serif; font-size:12.5px;
+  }
+  .dateline .left,.dateline .right{display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+  .dateline strong{font-weight:700}
+  .dateline .dot{width:3px;height:3px;background:var(--ink);border-radius:50%;display:inline-block}
+  .paper-nav{
+    border-bottom:3px double var(--line);
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; padding:0 2px;
+  }
+  .paper-nav::-webkit-scrollbar{display:none}
+  .paper-nav a{
+    font-family:"Noto Sans SC",sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em;
+    text-decoration:none; padding:11px 14px; white-space:nowrap; border-right:1px solid var(--line-light);
+  }
+  .paper-nav a:last-child{border-right:none}
+  .paper-nav a:hover{text-decoration:underline; text-underline-offset:4px}
+  @media(max-width:640px){
+    .paper-nav{flex-wrap:wrap; overflow-x:visible}
+    .paper-nav a{flex:1 1 30%; text-align:center; padding:10px 6px; font-size:12.5px}
+  }
+  .ticker{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line); margin:18px 0 0;
+  }
+  .ticker div.cell{padding:10px 12px 9px; border-right:1px solid var(--line-light)}
+  .ticker div.cell:last-child{border-right:none}
+  .ticker .label{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .ticker .val{font-size:19px; font-weight:900; line-height:1.2; margin-top:2px}
+  .ticker .chg{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700}
+  .down{color:var(--accent)} .up{color:#1f6b3a} @media(prefers-color-scheme:dark){.up{color:#7fc98f}}
+  @media(max-width:760px){ .ticker{grid-template-columns:repeat(2,1fr)} .ticker div.cell{border-bottom:1px solid var(--line-light)} .ticker div.cell:last-child{grid-column:span 2} }
+  .lead{padding:26px 0 8px; border-bottom:1px solid var(--line)}
+  .lead-kicker{font-family:"Noto Sans SC",sans-serif; font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:10px}
+  .lead-kicker::after{content:""; flex:1; height:1px; background:var(--line-light)}
+  .lead h1{
+    font-size:clamp(30px,5.2vw,52px); line-height:1.12; font-weight:900; letter-spacing:.01em; margin:12px 0 10px;
+  }
+  .lead .deck{font-size:clamp(16px,2.2vw,19px); line-height:1.65; color:var(--ink-2); margin:0 0 14px; max-width:820px}
+  .byline{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.06em; color:var(--ink-3); display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:8px 0; border-top:1px solid var(--line-light); border-bottom:1px solid var(--line-light)}
+  .byline b{color:var(--ink)}
+  .lead-cols{columns:2; column-gap:36px; column-rule:1px solid var(--line-light); margin-top:16px}
+  @media(max-width:700px){.lead-cols{columns:1}}
+  .lead-cols p{margin:0 0 12px; font-size:15.5px; line-height:1.85; text-align:justify}
+  .lead-cols p:first-child::first-letter{
+    font-size:56px; line-height:.85; font-weight:900; float:left; padding:6px 10px 0 0;
+  }
+  .readmore{font-family:"Noto Sans SC",sans-serif; font-size:12.5px; font-weight:700; text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px}
+  .readmore:hover{color:var(--accent)}
+  .front-grid{display:grid; grid-template-columns:1.55fr .95fr; gap:0; border-bottom:3px double var(--line)}
+  @media(max-width:820px){.front-grid{grid-template-columns:1fr}}
+  .front-main{padding:22px 28px 22px 0}
+  @media(max-width:820px){.front-main{padding-right:0}}
+  .front-side{border-left:1px solid var(--line); padding:22px 0 22px 24px}
+  @media(max-width:820px){.front-side{border-left:none; border-top:1px solid var(--line); padding-left:0}}
+  .mini-head{font-size:21px; font-weight:900; line-height:1.3; margin:0 0 8px}
+  .body-text{font-size:14.8px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .src{font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.04em}
+  .src a{font-weight:700; text-decoration:underline; text-underline-offset:3px}
+  .side-box{background:var(--box); border:1px solid var(--line); padding:16px 18px}
+  .side-box h3{margin:0 0 10px; font-size:15px; letter-spacing:.18em; text-align:center; border-bottom:1px solid var(--line); padding-bottom:10px}
+  .side-box ol{margin:0; padding-left:20px; font-size:13.8px; line-height:1.7}
+  .side-box li{margin-bottom:7px}
+  .side-box li::marker{font-weight:900}
+  .side-note{margin-top:14px}
+  .side-note h4{margin:0 0 6px; font-size:16px; font-weight:900; line-height:1.35}
+  section.paper-sec{padding:28px 0 6px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; border-top:3px solid var(--line); border-bottom:1px solid var(--line); padding:10px 0 9px; margin-bottom:20px}
+  .sec-head .no{font-family:"Playfair Display",serif; font-size:28px; font-weight:900; color:var(--accent); line-height:1}
+  .sec-head h2{margin:0; font-size:clamp(22px,3.4vw,30px); font-weight:900; letter-spacing:.06em}
+  .sec-head .en{font-family:"Noto Sans SC",sans-serif; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3); margin-left:auto; text-align:right}
+  @media(max-width:560px){.sec-head .en{display:none}}
+  .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:0}
+  .cols-2{display:grid; grid-template-columns:repeat(2,1fr); gap:0}
+  @media(max-width:860px){.cols-3{grid-template-columns:1fr 1fr} }
+  @media(max-width:600px){.cols-3,.cols-2{grid-template-columns:1fr}}
+  article.story{padding:4px 22px 20px; border-left:1px solid var(--line-light)}
+  article.story:first-child{border-left:none; padding-left:0}
+  @media(max-width:860px){
+    .cols-3 article.story:nth-child(3){border-left:none; padding-left:0; grid-column:span 2}
+  }
+  @media(max-width:600px){
+    article.story{border-left:none !important; padding-left:0 !important; padding-right:0; border-top:1px solid var(--line-light); padding-top:16px}
+    article.story:first-child{border-top:none; padding-top:4px}
+    .cols-3 article.story:nth-child(3){grid-column:auto}
+  }
+  .story .num{font-family:"Noto Sans SC",sans-serif; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+  .story h3{font-size:19.5px; line-height:1.38; font-weight:900; margin:6px 0 8px}
+  .story.feature h3{font-size:24px}
+  .story p{font-size:14.6px; line-height:1.85; color:var(--ink-2); text-align:justify; margin:0 0 10px}
+  .wide-story{display:grid; grid-template-columns:1fr 1fr; gap:28px; padding-bottom:20px}
+  @media(max-width:700px){.wide-story{grid-template-columns:1fr}}
+  .pullquote{border-top:2px solid var(--line); border-bottom:2px solid var(--line); padding:16px 4px; text-align:center}
+  .pullquote .big{font-size:clamp(26px,4vw,38px); font-weight:900; line-height:1.25; white-space:pre-line}
+  .pullquote .small{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.14em; color:var(--ink-3); margin-top:8px; text-transform:uppercase}
+  .pullquote .note{font-size:14.8px; line-height:1.85; color:var(--ink-2); margin-top:14px; white-space:pre-line}
+  footer.paper-foot{border-top:3px solid var(--line); margin-top:30px; padding-top:6px}
+  footer.paper-foot::before{content:""; display:block; border-top:1px solid var(--line); margin-bottom:16px}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:28px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  footer.paper-foot h4{font-family:"Noto Sans SC",sans-serif; font-size:12px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 10px}
+  footer.paper-foot p, footer.paper-foot li{font-size:13px; line-height:1.75; color:var(--ink-2)}
+  footer.paper-foot ul{margin:0; padding-left:18px}
+  .colophon{border-top:1px solid var(--line-light); margin-top:20px; padding:12px 0 0; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:"Noto Sans SC",sans-serif; font-size:11.5px; color:var(--ink-3); letter-spacing:.06em}
+</style>
+</head>
+<body>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-en" checked>
+<input class="lang-radio" type="radio" name="snap-lang" id="snap-lang-zh">
+<div class="lang-switch"><span class="box"><label for="snap-lang-en">EN</label><label for="snap-lang-zh">中文</label></span></div>
+<div class="sheet">
+<div class="edition edition-en">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 020</span>
+      <span><b>Core sources</b>&nbsp;Reuters · Bloomberg · WSJ · NYT · FT · SCMP · Nikkei Asia · Forbes</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · Daily Picks · Top Stories</div>
+      <h1 class="mast-title">Daily News</h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>Know the world · One page a day</p>
+        <span class="seal">Daily<br>News</span>
+        <p>14 stories · Five sections</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>November 26, 2026</strong> &nbsp;·&nbsp; Thursday</span>
+        <span class="dot"></span>
+        <span>Cutoff 07:30 Beijing time</span>
+        <span class="dot"></span>
+        <span>Beijing</span>
+      </div>
+      <div class="right"><span>14 stories today</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#en-lead">Front Page</a><a href="#en-world">International</a><a href="#en-asia">China &amp; Asia-Pacific</a><a href="#en-markets">Economy &amp; Markets</a><a href="#en-tech">Tech &amp; Companies</a><a href="#en-worth">Worth a Look</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">Dow Jones Industrial Average · Nov 25 close</div><div class="val">50,182.95</div><div class="chg up">+0.33%</div></div><div class="cell"><div class="label">S&amp;P 500 · Nov 25 close</div><div class="val">7,182.78</div><div class="chg down">-0.25%</div></div><div class="cell"><div class="label">Nasdaq Composite · Nov 25 close</div><div class="val">23,585.80</div><div class="chg down">-0.62%</div></div><div class="cell"><div class="label">Spot gold · Nov 25</div><div class="val">$3,576.30/oz</div><div class="chg up">+0.60%</div></div><div class="cell"><div class="label">WTI crude · Nov 25</div><div class="val">$84.08/barrel</div><div class="chg up">+2.47%</div></div></div>
+    <div class="lead" id="en-lead">
+      <div class="lead-kicker">Front Page · New U.S. Tariffs</div>
+      <h1>U.S. Proposes New Tariffs on 14 Trading Partners, With China Hit Hardest</h1>
+      <p class="deck">The Trump administration on Wednesday unveiled the results of its Section 301 investigation, proposing new tariffs on 14 major trading partners — including China — to combat what it calls structural excess industrial capacity. The move deepened a market already rattled by the AI sell-off.</p>
+      <div class="byline"><span>Source <b>Reuters</b></span></div>
+      <div class="lead-cols"><p>Reuters reported that Washington blames China most for flooding world markets with cheap exports, and that China would therefore face the highest rates. The proposed measures target sectors the U.S. says suffer from excess capacity; exact rates and lists are still to follow, but the White House has made clear it does not intend to retreat from its protectionist course.
+
+U.S. stocks swung sharply on the news: the Nasdaq fell 2% on Wednesday and is now almost 20% below its early-October record high, flirting with bear-market territory. Asian markets also slid, with South Korea's KOSPI down another 6% and Japan's Nikkei off almost 3%. Investors weighed the tariff risk alongside Wednesday's U.S. October PCE inflation data.</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/world/china/us-proposes-new-tariffs-14-trading-partners-fight-excess-factory-capacity-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">Chips and China</div>
+        <h2 class="mini-head">After Huang's Return, Washington's Fight Over China's Chip Access Only Intensifies</h2>
+        <p class="body-text">Reuters reported that President Donald Trump's intervention to restore Jensen Huang as Nvidia's chief executive settled who runs the world's most valuable chipmaker, but intensified Washington's wider fight over artificial intelligence, chips and China. The Commerce Department on Monday added Megaspeed and other firms linked to the affair to a trade blacklist.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/legal/government/jensen-huangs-return-nvidia-fuels-washington-fight-over-chinas-chip-access-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">Antitrust</div>
+        <h2 class="mini-head">Top Senate Antitrust Democrat Presses Nvidia Over Huang's Return</h2>
+        <p class="body-text">Reuters reported that Senator Cory Booker wrote to Nvidia on Wednesday demanding answers about communications between the Trump administration and Nvidia's board around Jensen Huang's resignation and reinstatement, including President Trump's assurances that Huang posed no national security threat. Booker is the top Democrat on the Senate antitrust subcommittee.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/legal/government/nvidia-faces-questions-top-senate-antitrust-democrat-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>In This Issue</h3><ol><li>The U.S. proposes new tariffs on 14 trading partners as the Nasdaq flirts with a bear market.</li><li>Asian chip stocks plunge: the KOSPI falls 6.2% and the Nikkei 2.8%.</li><li>Anthropic drops below its $83 IPO price as AI valuations are repriced.</li><li>U.S. October PCE inflation rises to 3.8%, all but locking in a December Fed rate hike.</li><li>Shenzhou-24 lifts off, carrying the first foreign astronaut to the Tiangong space station.</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">Huawei</div>
+        <h4>New York Jury Finds Huawei Guilty of Stealing U.S. Trade Secrets</h4>
+        <p class="body-text">Reuters reported that a New York jury found Huawei guilty of stealing U.S. trade secrets after a two-month trial, in a sprawling criminal case involving its Iran business — another landmark ruling in the U.S.–China technology contest.</p>
+        <p class="src">Source: Reuters · <a href="https://www.reuters.com/podcasts/alice-huang-linked-firms-chip-wars-thanksgiving-dinner-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="en-world">
+      <div class="sec-head"><span class="no">01</span><h2>International</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">In this edition: new tariffs and the AI pullback hit global markets together, the Nvidia saga continues in Washington, and Huawei's U.S. conviction sharpens the U.S.–China tech contest.</p>
+      
+    </section>
+    <section class="paper-sec" id="en-asia">
+      <div class="sec-head"><span class="no">02</span><h2>China &amp; Asia-Pacific</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 05 · Asian Markets</div>
+    <h3>AI Sell-Off Sweeps Asia: KOSPI Plunges 6.2%, Nikkei Falls 2.8%</h3>
+    <p>Asian stocks fell sharply on Wednesday, led by chipmakers. Samsung Electronics dropped 9.9% and SK Hynix 11.1% as South Korea's KOSPI closed at 4,697.51; SoftBank Group fell 14.8% in Japan, where the Nikkei closed at 57,011.62.
+
+Doubts about the returns on massive AI infrastructure spending, compounded by fresh U.S. tariff fears, meant Monday's relief rally on Jensen Huang's return lasted just one day.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/global-markets-risks-analysis-graphic-pix-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 06 · China's Space Programme</div>
+    <h3>Shenzhou-24 Lifts Off, Bringing First Foreign Astronaut to Tiangong</h3>
+    <p>Shenzhou-24 launched from Jiuquan at 8:18 a.m. Beijing time on November 25. Commander Tang Hongbo, taikonaut Wu Yi and Pakistani astronaut Muhammad Zeeshan Ali then entered the Tiangong space station. Ali is the first foreign astronaut to board Tiangong and will spend about a week in orbit conducting joint China–Pakistan space science experiments.</p>
+    <p class="src">Source: Xinhua · <a href="http://english.scio.gov.cn/chinavoices/2026-11/25/content_118789123.html" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-markets">
+      <div class="sec-head"><span class="no">03</span><h2>Economy &amp; Markets</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">No. 07 · U.S. Stocks</div>
+    <h3>Wall Street Stages Dramatic Comeback: Dow Erases 1,100-Point Loss, Nasdaq Still Falls 0.62%</h3>
+    <p>U.S. stocks closed mixed after a volatile session on the last full trading day before Thanksgiving. The Dow rose 164.25 points, or 0.33%, to 50,182.95; the S&amp;P 500 slipped 0.25% to 7,182.78; and the Nasdaq fell 0.62% to 23,585.80 after dropping as much as 4.6% intraday.
+
+The Wall Street Journal noted that continued pressure on AI stocks was the main drag, with Nvidia falling further. U.S. markets are closed on Thursday for Thanksgiving, with a shortened session on Friday.</p>
+    <p class="src">Source: The Wall Street Journal · <a href="https://www.wsj.com/finance/stocks/u-s-stocks-mixed-as-nvidia-ai-rout-continues-35d59863" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><div class="pullquote"><div class="big">50,182.95</div><div class="small">Dow close · Nov 25</div><div class="note">The Dow erased an intraday plunge of more than 1,100 points to close up 0.33%; the Nasdaq still fell 0.62% as AI stocks stayed under pressure.</div></div></div><div class="cols-3"><article class="story">
+    <div class="num">No. 08 · Inflation and the Fed</div>
+    <h3>U.S. October PCE Inflation Rises to 3.8%; Core Hits Three-Year High</h3>
+    <p>The U.S. Commerce Department reported on Wednesday that the October PCE price index rose 3.8% year on year, while core PCE rose 3.3% — both well above the Federal Reserve's 2% target. After the release, markets all but priced in a Fed rate hike at its December meeting; the policy rate is currently 3.75%–4.00%.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/us-inflation-rises-further-october-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-tech">
+      <div class="sec-head"><span class="no">04</span><h2>Tech &amp; Companies</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">No. 09 · AI Listings</div>
+    <h3>Anthropic Falls Below $83 IPO Price, Shedding Nearly $200 Billion From Debut Peak</h3>
+    <p>Just days after listing, Anthropic's shares have fallen below their $83 IPO price, trading around $80.50 on November 25 — nearly 30% below their $111.50 opening price on November 19 — with its market value falling from about $2 trillion to roughly $1.5 trillion. Investors are questioning whether lofty AI valuations and huge computing bills will deliver matching returns.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/anthropics-slide-tests-wall-streets-lofty-bets-future-ai-profits-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story feature">
+    <div class="num">No. 10 · AI Infrastructure</div>
+    <h3>AI Stocks Slide Further as Investors Question Returns on Costly Buildout</h3>
+    <p>Reuters reported that chipmakers, server makers and data centre operators extended their slide on Wednesday. Dell slumped 7.2% and Nvidia fell 4.6%, extending Tuesday's 6% drop, while Anthropic dropped a further 5.6%. Investors have set a high bar for AI companies, offering little reward even for beating expectations.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/business/ai-stocks-slide-fears-over-infrastructure-buildout-costs-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">No. 11 · Nvidia</div>
+    <h3>Huang Is Back. What's Next for Nvidia?</h3>
+    <p>Reuters analysis noted that Nvidia's shares jumped 31% on the day Huang was reinstated, but the rally quickly faded, leaving the stock about 35% below its October peak. The board has commissioned an independent review of his departure, and he is due to testify before Congress next week. Justice Department probes of Nvidia customers found no evidence he acted as an agent of China.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/technology/artificial-intelligence/jensen-is-back-whats-next-nvidia-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 12 · AI Litigation</div>
+    <h3>OpenAI Hires Top Litigator for Court Showdown With Musk Over AI Dominance</h3>
+    <p>Reuters reported that OpenAI has designated Cravath partner Gary Bornstein as lead trial counsel in a lawsuit brought by Elon Musk's X Corp and SpaceX Super Intelligence. The case is set for a jury trial in March in federal court in Texas — the second trial between the two sides in less than a year.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/legal/litigation/openai-taps-cravath-litigator-court-showdown-with-musk-over-ai-dominance-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article><article class="story">
+    <div class="num">No. 13 · Microsoft Outage</div>
+    <h3>Exclusive: Microsoft Declares 'Code Red' After Historic Outage</h3>
+    <p>Reuters reported exclusively, citing internal memos, that Microsoft declared a 'Code Red' after a historic outage, mobilising the company to respond. The incident underscored how dependent cloud and AI services have become on a handful of hyperscale providers.</p>
+    <p class="src">Source: Reuters · <a href="https://www.reuters.com/podcasts/alice-huang-linked-firms-chip-wars-thanksgiving-dinner-2026-11-25/" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="en-worth">
+      <div class="sec-head"><span class="no">05</span><h2>Worth a Look</h2><span class="en">Also Noted</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">No. 14 · Formula 1</div>
+    <h3>F1's Final Double-Header Begins in Qatar: Verstappen–Russell Rivalry Takes Centre Stage</h3>
+    <p>The final two rounds of the Formula 1 season begin this weekend at the Lusail circuit in Qatar. Max Verstappen took his fourth win in six races in Las Vegas after a fierce fight with George Russell, and their rivalry remains unresolved; at Ferrari, the Las Vegas clash between Lewis Hamilton and Charles Leclerc has put the team's internal tensions in focus.</p>
+    <p class="src">Source: Formula 1 · <a href="https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix.1bXINUYO8R8X3K7DjINr1A" target="_blank" rel="noopener noreferrer">Read original</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>About this paper</h4><p>14 stories in this edition, as of 07:30 Beijing time on November 26, 2026. Drawn mainly from eight core sources, supplemented by other outlets actually cited in this edition; deduplicated and ranked by importance, with one story per event — the fullest report kept — and sources and original links noted.</p></div>
+        <div><h4>Sources</h4><ul><li>Core: Reuters · Bloomberg</li><li>Core: The Wall Street Journal · The New York Times</li><li>Core: Financial Times · South China Morning Post</li><li>Core: Nikkei Asia · Forbes</li><li>Also cited: as noted on each story</li></ul></div>
+        <div><h4>Next issue</h4><p>To watch next: market bets ahead of the Fed's December meeting, Anthropic's MSCI index inclusion, Jensen Huang's testimony before Congress next week, the Qatar Grand Prix, and Black Friday spending data after Thanksgiving.</p></div>
+      </div>
+      <div class="colophon">
+        <span>Daily News · November 26, 2026 · Thursday</span>
+        <span>No. 020 · 14 stories · End</span>
+      </div>
+    </footer>
+  </div>
+<div class="edition edition-zh">
+    <div class="topstrip">
+      <span>Vol. I &nbsp;·&nbsp; No. 020</span>
+      <span><b>核心来源</b>&nbsp;路透 · 彭博 · 华尔街日报 · 纽约时报 · 金融时报 · 南华早报 · Nikkei Asia · 福布斯</span>
+      <span>Beijing Edition</span>
+    </div>
+    <header class="masthead">
+      <div class="mast-kicker">The Daily Briefing · 每日精选 · 要闻汇总</div>
+      <h1 class="mast-title"><span class="cn">新闻日报</span></h1>
+      <div class="mast-sub">
+        <span class="rule"></span>
+        <p>知天下事 · 读一页纸</p>
+        <span class="seal">日报<br>特辑</span>
+        <p>14 条要闻 · 五大板块</p>
+        <span class="rule"></span>
+      </div>
+    </header>
+    <div class="dateline">
+      <div class="left">
+        <span><strong>2026年11月26日</strong>　星期四</span>
+        <span class="dot"></span>
+        <span>北京时间 07:30 截稿</span>
+        <span class="dot"></span>
+        <span>北京</span>
+      </div>
+      <div class="right"><span>今日 14 条</span></div>
+    </div>
+    <nav class="paper-nav"><a href="#zh-lead">头版</a><a href="#zh-world">国际要闻</a><a href="#zh-asia">中国与亚太</a><a href="#zh-markets">经济与市场</a><a href="#zh-tech">科技与公司</a><a href="#zh-worth">值得一看</a></nav>
+    <div class="ticker"><div class="cell"><div class="label">道琼斯工业平均指数 · 11月25日收盘</div><div class="val">50,182.95</div><div class="chg up">+0.33%</div></div><div class="cell"><div class="label">标普500指数 · 11月25日收盘</div><div class="val">7,182.78</div><div class="chg down">-0.25%</div></div><div class="cell"><div class="label">纳斯达克综合指数 · 11月25日收盘</div><div class="val">23,585.80</div><div class="chg down">-0.62%</div></div><div class="cell"><div class="label">现货黄金 · 11月25日</div><div class="val">3,576.30美元/盎司</div><div class="chg up">+0.60%</div></div><div class="cell"><div class="label">WTI原油 · 11月25日</div><div class="val">84.08美元/桶</div><div class="chg up">+2.47%</div></div></div>
+    <div class="lead" id="zh-lead">
+      <div class="lead-kicker">头版头条 · 美国新关税</div>
+      <h1>美国拟对14个贸易伙伴加征关税，中国首当其冲</h1>
+      <p class="deck">特朗普政府周三公布“301调查”结果，拟以遏制所谓结构性产能过剩为由，对包括中国在内的14个主要贸易伙伴加征关税。市场本已因AI股回调而动荡，消息令避险情绪再度升温。</p>
+      <div class="byline"><span>来源 <b>路透社</b></span></div>
+      <div class="lead-cols"><p>路透社报道，美国政府称中国是向全球市场倾销廉价出口最多的国家，因此将面临最高的税率。拟议措施针对的是被美方认定为产能过剩的行业，具体税率与清单仍待进一步公布，但白宫已明确表示不会在保护主义路线上后退。
+
+消息公布当天，美股大幅波动：纳斯达克指数下跌2%，较10月初的历史高点已回落近20%，濒临熊市；亚洲市场同样重挫，韩国KOSPI再跌约6%，日经指数跌近3%。投资者一面消化关税风险，一面等待当天公布的美国10月PCE通胀数据。</p></div>
+      <p style="margin-top:14px"><a class="readmore" href="https://www.reuters.com/world/china/us-proposes-new-tariffs-14-trading-partners-fight-excess-factory-capacity-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文 →</a></p>
+    </div>
+    <div class="front-grid">
+      <div class="front-main"><div>
+        <div class="lead-kicker" style="margin-bottom:10px">芯片与中国</div>
+        <h2 class="mini-head">黄仁勋复职之后，华盛顿芯片之争反而更激烈</h2>
+        <p class="body-text">路透社报道，特朗普出面推动英伟达恢复黄仁勋职务，虽平息了谁掌舵这家全球最具价值芯片商的疑问，却加剧了华盛顿围绕人工智能、芯片与中国的更大争论。美国商务部周一已将与黄仁勋绯闻对象有关联的Megaspeed等公司列入贸易黑名单。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/legal/government/jensen-huangs-return-nvidia-fuels-washington-fight-over-chinas-chip-access-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div><div style="margin-top:22px">
+        <div class="lead-kicker" style="margin-bottom:10px">反垄断</div>
+        <h2 class="mini-head">参议院反垄断民主党领袖致函英伟达，追问黄仁勋复职内情</h2>
+        <p class="body-text">路透社报道，参议员科里·布克周三致函英伟达，要求说明特朗普政府与英伟达董事会在黄仁勋辞职与复职前后的沟通情况，包括特朗普称黄仁勋不构成国家安全威胁的保证。布克是参议院反垄断小组委员会的民主党领袖。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/legal/government/nvidia-faces-questions-top-senate-antitrust-democrat-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div></div>
+      <aside class="front-side">
+        <div class="side-box"><h3>本 期 导 读</h3><ol><li>美国拟对14个贸易伙伴加征关税，纳指濒临熊市。</li><li>亚洲芯片股重挫：KOSPI跌6.2%，日经跌2.8%。</li><li>Anthropic跌破83美元发行价，AI估值遭遇重估。</li><li>美国10月PCE通胀升至3.8%，美联储12月加息几成定局。</li><li>神舟二十四号升空，首位外国航天员进入天宫空间站。</li></ol></div>
+        <div class="side-note">
+        <div class="lead-kicker" style="margin:18px 0 8px">华为</div>
+        <h4>纽约陪审团裁定华为窃取美国商业秘密罪名成立</h4>
+        <p class="body-text">路透社报道，纽约一个陪审团在历时两个月的庭审后，裁定华为窃取美国商业秘密等罪名成立。这起涉及其伊朗业务的刑事大案，是中美科技博弈中的又一标志性判决。</p>
+        <p class="src">来源：路透社 · <a href="https://www.reuters.com/podcasts/alice-huang-linked-firms-chip-wars-thanksgiving-dinner-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+      </div>
+      </aside>
+    </div>
+    <section class="paper-sec" id="zh-world">
+      <div class="sec-head"><span class="no">01</span><h2>国际要闻</h2><span class="en">World · Politics &amp; Security</span></div>
+      <p class="body-text" style="max-width:760px">本版看点：新关税与AI回调双重冲击全球市场，英伟达风波余波未平，华为在美被判有罪，中美科技博弈再升级。</p>
+      
+    </section>
+    <section class="paper-sec" id="zh-asia">
+      <div class="sec-head"><span class="no">02</span><h2>中国与亚太</h2><span class="en">China &amp; Asia-Pacific</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 05 条 · 亚洲股市</div>
+    <h3>AI抛售席卷亚洲：KOSPI暴跌6.2%，日经跌2.8%</h3>
+    <p>周三亚洲股市大幅下挫，芯片股领跌。三星电子跌9.9%、SK海力士跌11.1%，韩国KOSPI收于4,697.51点；日本软银集团跌14.8%，日经指数收于57,011.62点。
+
+市场质疑AI基建巨额投入的回报，叠加美国新关税担忧，令周一黄仁勋复职带来的反弹仅维持了一天。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/global-markets-risks-analysis-graphic-pix-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 06 条 · 中国航天</div>
+    <h3>神舟二十四号升空，首位外国航天员进入天宫空间站</h3>
+    <p>神舟二十四号于11月25日8时18分从酒泉发射升空，指令长汤洪波、航天员武毅与巴基斯坦航天员穆罕默德·齐尚·阿里随后进入天宫空间站。阿里成为首位登上天宫的外国航天员，将在轨停留约一周并开展中巴联合空间科学实验。</p>
+    <p class="src">来源：新华社 · <a href="http://english.scio.gov.cn/chinavoices/2026-11/25/content_118789123.html" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-markets">
+      <div class="sec-head"><span class="no">03</span><h2>经济与市场</h2><span class="en">Economy &amp; Markets</span></div>
+      <div class="wide-story"><article class="story feature" style="border:none;padding:0">
+    <div class="num">第 07 条 · 美股</div>
+    <h3>美股上演惊天逆转：道指抹去1,100点跌幅收涨，纳指仍跌0.62%</h3>
+    <p>感恩节前最后一个完整交易日美股大幅震荡后分化收盘。道指涨164.25点、0.33%，报50,182.95点；标普500跌0.25%至7,182.78点；纳指跌0.62%至23,585.80点，盘中一度跌4.6%。
+
+《华尔街日报》指出，AI股持续承压仍是主因，英伟达继续回落；美股周四因感恩节休市，周五为缩短交易日。</p>
+    <p class="src">来源：华尔街日报 · <a href="https://www.wsj.com/finance/stocks/u-s-stocks-mixed-as-nvidia-ai-rout-continues-35d59863" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><div class="pullquote"><div class="big">50,182.95</div><div class="small">道指收盘点位 · 11月25日</div><div class="note">道指盘中一度跌逾1,100点后强势翻红，收涨0.33%；纳指仍跌0.62%，AI股继续承压。</div></div></div><div class="cols-3"><article class="story">
+    <div class="num">第 08 条 · 通胀与央行</div>
+    <h3>美国10月PCE通胀升至3.8%，核心通胀创三年新高</h3>
+    <p>美国商务部周三公布，10月PCE物价指数同比上涨3.8%，核心PCE同比上涨3.3%，均高于美联储2%的目标。数据公布后，市场几乎认定美联储将在12月会议上加息，政策利率目前为3.75%至4.00%。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/us-inflation-rises-further-october-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-tech">
+      <div class="sec-head"><span class="no">04</span><h2>科技与公司</h2><span class="en">Technology &amp; Companies</span></div>
+      <div class="cols-2"><article class="story feature">
+    <div class="num">第 09 条 · AI上市</div>
+    <h3>Anthropic跌破83美元发行价，市值较首日峰值蒸发近2,000亿美元</h3>
+    <p>上市仅数日，Anthropic股价已跌破83美元的发行价，11月25日盘中约报80.50美元，较11月19日111.50美元的开盘价跌近30%，市值从约2万亿美元回落至约1.5万亿美元。市场质疑AI高估值与巨额算力开支能否带来相应回报。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/anthropics-slide-tests-wall-streets-lofty-bets-future-ai-profits-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story feature">
+    <div class="num">第 10 条 · AI基建</div>
+    <h3>AI股继续下挫：投资者质疑天价基建投入的回报</h3>
+    <p>路透社报道，芯片商、服务器制造商与数据中心运营商周三继续下跌。戴尔重挫7.2%，英伟达跌4.6%，延续周二6%的跌幅；Anthropic再跌5.6%。市场认为，AI公司正面临极高的业绩门槛，超预期也难获奖励。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/business/ai-stocks-slide-fears-over-infrastructure-buildout-costs-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+      <div class="cols-3" style="margin-top:6px"><article class="story">
+    <div class="num">第 11 条 · 英伟达</div>
+    <h3>黄仁勋回来了，英伟达接下来怎么办？</h3>
+    <p>路透社分析，黄仁勋复职首日英伟达股价曾大涨31%，但涨势迅速回吐，股价较10月峰值仍跌约35%。董事会已委托独立调查其离职经过，他下周将赴国会作证；与此同时，司法部对英伟达客户的调查未发现其充当中国代理人的证据。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/technology/artificial-intelligence/jensen-is-back-whats-next-nvidia-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 12 条 · AI诉讼</div>
+    <h3>OpenAI聘请顶级诉讼律师，迎战马斯克关于AI主导权的官司</h3>
+    <p>路透社报道，OpenAI已指定Cravath律师事务所合伙人加里·伯恩斯坦为首席庭审律师，应对马斯克旗下X Corp与SpaceX Super Intelligence提起的诉讼。该案将于明年3月在得州联邦法院开庭审理，是双方不到一年内的第二场庭审。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/legal/litigation/openai-taps-cravath-litigator-court-showdown-with-musk-over-ai-dominance-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article><article class="story">
+    <div class="num">第 13 条 · 微软断网</div>
+    <h3>独家：微软在历史性断网后宣布进入“红色代码”状态</h3>
+    <p>路透社独家报道，内部备忘录显示，微软在一场历史性断网之后宣布进入“红色代码”状态，全公司动员应对。这起事故再次凸显云计算与AI服务对少数几家超大规模供应商的依赖风险。</p>
+    <p class="src">来源：路透社 · <a href="https://www.reuters.com/podcasts/alice-huang-linked-firms-chip-wars-thanksgiving-dinner-2026-11-25/" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <section class="paper-sec" id="zh-worth">
+      <div class="sec-head"><span class="no">05</span><h2>值得一看</h2><span class="en">Also Noted</span></div>
+      <div class="cols-3"><article class="story feature">
+    <div class="num">第 14 条 · F1</div>
+    <h3>F1收官双连战开锣：卡塔尔站看维斯塔潘与拉塞尔的恩怨续集</h3>
+    <p>F1赛季最后两站本周末在卡塔尔卢赛尔赛道展开。维斯塔潘在拉斯维加斯站与拉塞尔的缠斗后豪取六站第四胜，两人的矛盾仍未平息；法拉利方面，汉密尔顿与勒克莱尔在拉斯维加斯的碰撞也让车队内斗成为焦点。</p>
+    <p class="src">来源：Formula 1官网 · <a href="https://www.formula1.com/en/latest/article/its-race-week-5-storylines-were-excited-about-ahead-of-the-2026-qatar-grand-prix.1bXINUYO8R8X3K7DjINr1A" target="_blank" rel="noopener noreferrer">阅读原文</a></p>
+  </article></div>
+    </section>
+    <footer class="paper-foot">
+      <div class="foot-grid">
+        <div><h4>关于本报</h4><p>本期共 14 条，截至北京时间2026年11月26日07:30。以八家核心来源为主、辅以本期实际引用的其他来源，去重精选，按重要性编排，同一事件只保留报道最全的一条，并标注来源与原文链接。</p></div>
+        <div><h4>来源一览</h4><ul><li>核心：路透社 · 彭博社</li><li>核心：华尔街日报 · 纽约时报</li><li>核心：金融时报 · 南华早报</li><li>核心：Nikkei Asia · 福布斯</li><li>本期另引：以各条标注为准</li></ul></div>
+        <div><h4>下期预告</h4><p>下期值得跟踪：美联储12月议息会议前的市场押注、Anthropic纳入MSCI指数的进展、黄仁勋下周赴国会作证，以及卡塔尔F1大奖赛与感恩节后的“黑色星期五”消费数据。</p></div>
+      </div>
+      <div class="colophon">
+        <span>新闻日报 · 2026年11月26日 · 星期四</span>
+        <span>第 020 期 · 共 14 条 · 完</span>
+      </div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
